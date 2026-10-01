@@ -1,0 +1,3508 @@
+{
+  "scope": {
+    "frozen_noncoding_cells": 18,
+    "coding_cells_on_hold": 3,
+    "n_per_cell": 14,
+    "hard_n": 6,
+    "hard_qids": [
+      "coding:3687",
+      "coding:3770",
+      "coding:abc388_f",
+      "coding:abc390_f",
+      "coding:abc391_e",
+      "coding:arc195_e"
+    ],
+    "selection_rule_for_ranks": "max stable_correct, then min A/B mean billed for the 14-item cell (same order as per-request mean; table shows 14-item totals)",
+    "winners_curse": "Lookup performance is an in-sample upper-bound estimate. Do not numerically correct 268/294 or residual 6."
+  },
+  "frozen_lookup": {
+    "knowledge:ko": "gemini_3_7_flash",
+    "knowledge:en": "claude_opus_5",
+    "knowledge:hi": "gemini_3_7_flash",
+    "math:ko": "gpt_5_6_luna",
+    "math:en": "deepseek_v4_flash",
+    "math:hi": "deepseek_v4_flash",
+    "instruction:ko": "deepseek_v4_pro",
+    "instruction:en": "gemini_3_7_flash",
+    "instruction:hi": "gemini_3_7_flash",
+    "extraction:ko": "gpt_5_6_luna",
+    "extraction:en": "gpt_5_6_luna",
+    "extraction:hi": "gpt_5_6_terra",
+    "toolcall:ko": "deepseek_v4_pro",
+    "toolcall:en": "gemini_3_7_flash",
+    "toolcall:hi": "gemini_3_7_flash",
+    "abstention:ko": "gpt_5_6_luna",
+    "abstention:en": "grok_4_3",
+    "abstention:hi": "gpt_5_6_luna"
+  },
+  "coding_ranks": {
+    "ko": [
+      {
+        "model": "claude_fable_5",
+        "stable_correct": 9,
+        "a_correct": 9,
+        "b_correct": 10,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 3.19714,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 2.6524900000000002,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 2.924815,
+        "mean_billed_per_request": 0.20891535714285717,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_opus_5",
+        "stable_correct": 7,
+        "a_correct": 7,
+        "b_correct": 8,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.72602,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.98137,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.353695,
+        "mean_billed_per_request": 0.0966925,
+        "infra_qids": []
+      },
+      {
+        "model": "grok_4_3",
+        "stable_correct": 6,
+        "a_correct": 7,
+        "b_correct": 6,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.08788965,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.11125825,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.09957395,
+        "mean_billed_per_request": 0.0071124249999999995,
+        "infra_qids": []
+      },
+      {
+        "model": "grok_4_6",
+        "stable_correct": 6,
+        "a_correct": 7,
+        "b_correct": 8,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.552262,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.5302479999999999,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.541255,
+        "mean_billed_per_request": 0.038661071428571434,
+        "infra_qids": []
+      },
+      {
+        "model": "kimi_k3",
+        "stable_correct": 6,
+        "a_correct": 6,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.75006065,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.8316488,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.790854725,
+        "mean_billed_per_request": 0.12791819464285714,
+        "infra_qids": []
+      },
+      {
+        "model": "qwen3_7_plus",
+        "stable_correct": 5,
+        "a_correct": 6,
+        "b_correct": 6,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.2244512,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.2370976,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.2307744,
+        "mean_billed_per_request": 0.016483885714285714,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_sol",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 13,
+        "cost_a": {
+          "cost": 0.22581400000000001,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.240524,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.23316900000000002,
+        "mean_billed_per_request": 0.016654928571428574,
+        "infra_qids": [
+          "coding:abc390_c"
+        ]
+      },
+      {
+        "model": "gpt_5_6_terra",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.24616000000000002,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.27744399999999997,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.261802,
+        "mean_billed_per_request": 0.018700142857142856,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_sonnet_5",
+        "stable_correct": 5,
+        "a_correct": 6,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.091328,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.184538,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.137933,
+        "mean_billed_per_request": 0.08128092857142857,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_luna",
+        "stable_correct": 4,
+        "a_correct": 4,
+        "b_correct": 7,
+        "stable_n": 13,
+        "cost_a": {
+          "cost": 0.0270784,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.028284399999999998,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.0276814,
+        "mean_billed_per_request": 0.001977242857142857,
+        "infra_qids": [
+          "coding:abc390_c"
+        ]
+      },
+      {
+        "model": "gemini_3_7_flash",
+        "stable_correct": 4,
+        "a_correct": 4,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.0717,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.0720075,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.07185375,
+        "mean_billed_per_request": 0.0051324107142857135,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_flash",
+        "stable_correct": 3,
+        "a_correct": 5,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.01019139568,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.0684102734,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.039300834539999996,
+        "mean_billed_per_request": 0.002807202467142857,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_pro",
+        "stable_correct": 3,
+        "a_correct": 4,
+        "b_correct": 3,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.120687532558,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.108290998539,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.1144892655485,
+        "mean_billed_per_request": 0.008177804682035715,
+        "infra_qids": []
+      },
+      {
+        "model": "gemini_3_1_pro",
+        "stable_correct": 3,
+        "a_correct": 3,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.17901,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.579168,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.379089,
+        "mean_billed_per_request": 0.09850635714285715,
+        "infra_qids": []
+      }
+    ],
+    "en": [
+      {
+        "model": "grok_4_3",
+        "stable_correct": 9,
+        "a_correct": 11,
+        "b_correct": 9,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.08453485000000001,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.09119445,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.08786465,
+        "mean_billed_per_request": 0.006276046428571429,
+        "infra_qids": []
+      },
+      {
+        "model": "kimi_k3",
+        "stable_correct": 7,
+        "a_correct": 7,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.709972,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.7239317,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.71695185,
+        "mean_billed_per_request": 0.12263941785714286,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_fable_5",
+        "stable_correct": 7,
+        "a_correct": 7,
+        "b_correct": 9,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 3.78969,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 3.10134,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 3.445515,
+        "mean_billed_per_request": 0.24610821428571428,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_opus_5",
+        "stable_correct": 6,
+        "a_correct": 8,
+        "b_correct": 6,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.36672,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.6723949999999999,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.5195575,
+        "mean_billed_per_request": 0.10853982142857142,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_sol",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.21765400000000001,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.217754,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.217704,
+        "mean_billed_per_request": 0.015550285714285714,
+        "infra_qids": []
+      },
+      {
+        "model": "qwen3_7_plus",
+        "stable_correct": 5,
+        "a_correct": 7,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.22614016,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.21049984,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.21832000000000001,
+        "mean_billed_per_request": 0.015594285714285715,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_pro",
+        "stable_correct": 4,
+        "a_correct": 5,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.287185658439,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.107637838229,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.197411748334,
+        "mean_billed_per_request": 0.014100839166714285,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_terra",
+        "stable_correct": 4,
+        "a_correct": 4,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.270284,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.273656,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.27197000000000005,
+        "mean_billed_per_request": 0.019426428571428574,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_sonnet_5",
+        "stable_correct": 4,
+        "a_correct": 9,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.225468,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.225238,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.2253530000000001,
+        "mean_billed_per_request": 0.08752521428571429,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_luna",
+        "stable_correct": 3,
+        "a_correct": 5,
+        "b_correct": 3,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.0282344,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.0303464,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.0292904,
+        "mean_billed_per_request": 0.0020921714285714287,
+        "infra_qids": []
+      },
+      {
+        "model": "grok_4_6",
+        "stable_correct": 3,
+        "a_correct": 5,
+        "b_correct": 6,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.679612,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.641668,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.66064,
+        "mean_billed_per_request": 0.04718857142857143,
+        "infra_qids": []
+      },
+      {
+        "model": "gemini_3_1_pro",
+        "stable_correct": 3,
+        "a_correct": 4,
+        "b_correct": 3,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.659092,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.36975,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.514421,
+        "mean_billed_per_request": 0.10817292857142857,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_flash",
+        "stable_correct": 2,
+        "a_correct": 5,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.01792503716,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.02189010596,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.01990757156,
+        "mean_billed_per_request": 0.0014219693971428572,
+        "infra_qids": []
+      },
+      {
+        "model": "gemini_3_7_flash",
+        "stable_correct": 2,
+        "a_correct": 2,
+        "b_correct": 2,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.06330675,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.06330675,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.06330675,
+        "mean_billed_per_request": 0.0045219107142857136,
+        "infra_qids": []
+      }
+    ],
+    "hi": [
+      {
+        "model": "claude_fable_5",
+        "stable_correct": 9,
+        "a_correct": 10,
+        "b_correct": 9,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 3.05986,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 3.83921,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 3.449535,
+        "mean_billed_per_request": 0.24639535714285715,
+        "infra_qids": []
+      },
+      {
+        "model": "grok_4_3",
+        "stable_correct": 8,
+        "a_correct": 9,
+        "b_correct": 9,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.0961484,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.0932392,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.0946938,
+        "mean_billed_per_request": 0.006763842857142857,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_opus_5",
+        "stable_correct": 6,
+        "a_correct": 6,
+        "b_correct": 8,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.7473049999999999,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.00208,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.3746925,
+        "mean_billed_per_request": 0.09819232142857144,
+        "infra_qids": []
+      },
+      {
+        "model": "kimi_k3",
+        "stable_correct": 6,
+        "a_correct": 6,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.6016598,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.6111548,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.6064072999999999,
+        "mean_billed_per_request": 0.11474337857142856,
+        "infra_qids": []
+      },
+      {
+        "model": "gemini_3_7_flash",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.0577305,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.0582705,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.058000499999999997,
+        "mean_billed_per_request": 0.004142892857142857,
+        "infra_qids": []
+      },
+      {
+        "model": "qwen3_7_plus",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.2118672,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.24065568,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.22626144,
+        "mean_billed_per_request": 0.016161531428571428,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_sol",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.242822,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.221802,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.23231200000000002,
+        "mean_billed_per_request": 0.016593714285714288,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_terra",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.255548,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.24965600000000002,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.252602,
+        "mean_billed_per_request": 0.018043,
+        "infra_qids": []
+      },
+      {
+        "model": "gemini_3_1_pro",
+        "stable_correct": 5,
+        "a_correct": 5,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 1.466964,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 1.1375439999999999,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 1.302254,
+        "mean_billed_per_request": 0.09301814285714285,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_flash",
+        "stable_correct": 4,
+        "a_correct": 6,
+        "b_correct": 5,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.02116583028,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.01769629518,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.019431062729999997,
+        "mean_billed_per_request": 0.001387933052142857,
+        "infra_qids": []
+      },
+      {
+        "model": "gpt_5_6_luna",
+        "stable_correct": 4,
+        "a_correct": 5,
+        "b_correct": 4,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.0313784,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.023006,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.0271922,
+        "mean_billed_per_request": 0.0019422999999999999,
+        "infra_qids": []
+      },
+      {
+        "model": "grok_4_6",
+        "stable_correct": 4,
+        "a_correct": 5,
+        "b_correct": 7,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.607422,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.608688,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.608055,
+        "mean_billed_per_request": 0.0434325,
+        "infra_qids": []
+      },
+      {
+        "model": "deepseek_v4_pro",
+        "stable_correct": 3,
+        "a_correct": 3,
+        "b_correct": 3,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.18208541068,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.202782376527,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.1924338936035,
+        "mean_billed_per_request": 0.013745278114535714,
+        "infra_qids": []
+      },
+      {
+        "model": "claude_sonnet_5",
+        "stable_correct": 3,
+        "a_correct": 6,
+        "b_correct": 9,
+        "stable_n": 14,
+        "cost_a": {
+          "cost": 0.9627720000000001,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "cost_b": {
+          "cost": 0.912072,
+          "n_billed": 14,
+          "n_total": 14,
+          "n_missing": 0
+        },
+        "mean_billed_cost": 0.937422,
+        "mean_billed_per_request": 0.06695871428571429,
+        "infra_qids": []
+      }
+    ]
+  },
+  "coding_top3": {
+    "ko": [
+      "claude_fable_5",
+      "claude_opus_5",
+      "grok_4_3"
+    ],
+    "en": [
+      "grok_4_3",
+      "kimi_k3",
+      "claude_fable_5"
+    ],
+    "hi": [
+      "claude_fable_5",
+      "grok_4_3",
+      "claude_opus_5"
+    ]
+  },
+  "within_one_cell_of_best": {
+    "ko": [
+      {
+        "model": "claude_fable_5",
+        "stable_correct": 9,
+        "delta_from_best": 0,
+        "mean_billed_cost": 2.924815,
+        "cost_ratio_vs_best": 1.0
+      }
+    ],
+    "en": [
+      {
+        "model": "grok_4_3",
+        "stable_correct": 9,
+        "delta_from_best": 0,
+        "mean_billed_cost": 0.08786465,
+        "cost_ratio_vs_best": 1.0
+      }
+    ],
+    "hi": [
+      {
+        "model": "claude_fable_5",
+        "stable_correct": 9,
+        "delta_from_best": 0,
+        "mean_billed_cost": 3.449535,
+        "cost_ratio_vs_best": 1.0
+      },
+      {
+        "model": "grok_4_3",
+        "stable_correct": 8,
+        "delta_from_best": -1,
+        "mean_billed_cost": 0.0946938,
+        "cost_ratio_vs_best": 0.027451178202279436
+      }
+    ]
+  },
+  "fable_vs_grok43": {
+    "ko": {
+      "lang": "ko",
+      "left": "claude_fable_5",
+      "right": "grok_4_3",
+      "stable_left": 9,
+      "stable_right": 6,
+      "stable_delta_left_minus_right": 3,
+      "a_left": 9,
+      "a_right": 7,
+      "b_left": 10,
+      "b_right": 6,
+      "a_delta": 2,
+      "b_delta": 4,
+      "stable_left_only_qids": [
+        "coding:3687",
+        "coding:3770",
+        "coding:3809",
+        "coding:abc391_e"
+      ],
+      "stable_right_only_qids": [
+        "coding:abc397_c"
+      ],
+      "stable_both_qids": [
+        "coding:3736",
+        "coding:abc389_a",
+        "coding:abc390_c",
+        "coding:abc395_c",
+        "coding:abc396_c"
+      ],
+      "stable_neither_qids": [
+        "coding:3684",
+        "coding:abc388_f",
+        "coding:abc390_f",
+        "coding:arc195_e"
+      ],
+      "stable_left_only_hard_qids": [
+        "coding:3687",
+        "coding:3770",
+        "coding:abc391_e"
+      ],
+      "items": [
+        {
+          "qid": "coding:3684",
+          "difficulty": "easy",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3684",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0413,
+            "cost_b": 0.0474
+          },
+          "grok_4_3": {
+            "qid": "coding:3684",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0028706,
+            "cost_b": 0.0033756
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3687",
+          "difficulty": "hard",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3687",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.11678,
+            "cost_b": 0.17623
+          },
+          "grok_4_3": {
+            "qid": "coding:3687",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00435435,
+            "cost_b": 0.00597935
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": true,
+          "a_right_only": false,
+          "b_left_only": true,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3736",
+          "difficulty": "easy",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3736",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.03549,
+            "cost_b": 0.02489
+          },
+          "grok_4_3": {
+            "qid": "coding:3736",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00165185,
+            "cost_b": 0.00162215
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3770",
+          "difficulty": "hard",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3770",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 1.01904,
+            "cost_b": 0.67834
+          },
+          "grok_4_3": {
+            "qid": "coding:3770",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0142156,
+            "cost_b": 0.0100256
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": true,
+          "a_right_only": false,
+          "b_left_only": true,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3809",
+          "difficulty": "medium",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3809",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04722,
+            "cost_b": 0.05022
+          },
+          "grok_4_3": {
+            "qid": "coding:3809",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00164685,
+            "cost_b": 0.00167685
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": true,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc388_f",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc388_f",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 1.10449,
+            "cost_b": 0.80554
+          },
+          "grok_4_3": {
+            "qid": "coding:abc388_f",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.01904685,
+            "cost_b": 0.01454705
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc389_a",
+          "difficulty": "easy",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc389_a",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0154,
+            "cost_b": 0.0162
+          },
+          "grok_4_3": {
+            "qid": "coding:abc389_a",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0008056,
+            "cost_b": 0.0006834
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc390_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc390_c",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04765,
+            "cost_b": 0.0579
+          },
+          "grok_4_3": {
+            "qid": "coding:abc390_c",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0038906,
+            "cost_b": 0.0044656
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc390_f",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc390_f",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.18458,
+            "cost_b": 0.17783
+          },
+          "grok_4_3": {
+            "qid": "coding:abc390_f",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.01051935,
+            "cost_b": 0.00644465
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc391_e",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc391_e",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04583,
+            "cost_b": 0.07143
+          },
+          "grok_4_3": {
+            "qid": "coding:abc391_e",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0050931,
+            "cost_b": 0.0048556
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": true,
+          "a_right_only": false,
+          "b_left_only": true,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc395_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc395_c",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.03709,
+            "cost_b": 0.03479
+          },
+          "grok_4_3": {
+            "qid": "coding:abc395_c",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0022656,
+            "cost_b": 0.0031856
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc396_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc396_c",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04725,
+            "cost_b": 0.05345
+          },
+          "grok_4_3": {
+            "qid": "coding:abc396_c",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0043981,
+            "cost_b": 0.0041631
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc397_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc397_c",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": true,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04677,
+            "cost_b": 0.04147
+          },
+          "grok_4_3": {
+            "qid": "coding:abc397_c",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0027006,
+            "cost_b": 0.0026181
+          },
+          "stable_left_only": false,
+          "stable_right_only": true,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": true,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:arc195_e",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:arc195_e",
+            "lang": "ko",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.40825,
+            "cost_b": 0.4168
+          },
+          "grok_4_3": {
+            "qid": "coding:arc195_e",
+            "lang": "ko",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0144306,
+            "cost_b": 0.0476156
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        }
+      ]
+    },
+    "hi": {
+      "lang": "hi",
+      "left": "claude_fable_5",
+      "right": "grok_4_3",
+      "stable_left": 9,
+      "stable_right": 8,
+      "stable_delta_left_minus_right": 1,
+      "a_left": 10,
+      "a_right": 9,
+      "b_left": 9,
+      "b_right": 9,
+      "a_delta": 1,
+      "b_delta": 0,
+      "stable_left_only_qids": [
+        "coding:3687",
+        "coding:abc391_e"
+      ],
+      "stable_right_only_qids": [
+        "coding:abc397_c"
+      ],
+      "stable_both_qids": [
+        "coding:3736",
+        "coding:3770",
+        "coding:3809",
+        "coding:abc389_a",
+        "coding:abc390_c",
+        "coding:abc395_c",
+        "coding:abc396_c"
+      ],
+      "stable_neither_qids": [
+        "coding:3684",
+        "coding:abc388_f",
+        "coding:abc390_f",
+        "coding:arc195_e"
+      ],
+      "stable_left_only_hard_qids": [
+        "coding:3687",
+        "coding:abc391_e"
+      ],
+      "items": [
+        {
+          "qid": "coding:3684",
+          "difficulty": "easy",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3684",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.05008,
+            "cost_b": 0.05328
+          },
+          "grok_4_3": {
+            "qid": "coding:3684",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0022306,
+            "cost_b": 0.0035306
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3687",
+          "difficulty": "hard",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3687",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.11793,
+            "cost_b": 0.15903
+          },
+          "grok_4_3": {
+            "qid": "coding:3687",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0086281,
+            "cost_b": 0.0034206
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": true,
+          "a_right_only": false,
+          "b_left_only": true,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3736",
+          "difficulty": "easy",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3736",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04963,
+            "cost_b": 0.04358
+          },
+          "grok_4_3": {
+            "qid": "coding:3736",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00165185,
+            "cost_b": 0.00182435
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3770",
+          "difficulty": "hard",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3770",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 1.3919,
+            "cost_b": 1.1268
+          },
+          "grok_4_3": {
+            "qid": "coding:3770",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0083331,
+            "cost_b": 0.0136481
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:3809",
+          "difficulty": "medium",
+          "platform": "leetcode",
+          "claude_fable_5": {
+            "qid": "coding:3809",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.05324,
+            "cost_b": 0.05499
+          },
+          "grok_4_3": {
+            "qid": "coding:3809",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0021256,
+            "cost_b": 0.0023656
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc388_f",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc388_f",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.35765,
+            "cost_b": 1.39155
+          },
+          "grok_4_3": {
+            "qid": "coding:abc388_f",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.01642435,
+            "cost_b": 0.01826435
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc389_a",
+          "difficulty": "easy",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc389_a",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0155,
+            "cost_b": 0.0269
+          },
+          "grok_4_3": {
+            "qid": "coding:abc389_a",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0008956,
+            "cost_b": 0.0007656
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc390_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc390_c",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0599,
+            "cost_b": 0.07665
+          },
+          "grok_4_3": {
+            "qid": "coding:abc390_c",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0046606,
+            "cost_b": 0.0028214
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc390_f",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc390_f",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.15806,
+            "cost_b": 0.15501
+          },
+          "grok_4_3": {
+            "qid": "coding:abc390_f",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0077006,
+            "cost_b": 0.0060681
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": true,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc391_e",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc391_e",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.11528,
+            "cost_b": 0.08148
+          },
+          "grok_4_3": {
+            "qid": "coding:abc391_e",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": true,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00526185,
+            "cost_b": 0.00540935
+          },
+          "stable_left_only": true,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": true,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc395_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc395_c",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.04931,
+            "cost_b": 0.04031
+          },
+          "grok_4_3": {
+            "qid": "coding:abc395_c",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00281185,
+            "cost_b": 0.00260685
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc396_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc396_c",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.08321,
+            "cost_b": 0.07926
+          },
+          "grok_4_3": {
+            "qid": "coding:abc396_c",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.00465435,
+            "cost_b": 0.00411935
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": true,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        },
+        {
+          "qid": "coding:abc397_c",
+          "difficulty": "medium",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:abc397_c",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": true,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.05444,
+            "cost_b": 0.05729
+          },
+          "grok_4_3": {
+            "qid": "coding:abc397_c",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": true,
+            "b_correct": true,
+            "stable": true,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.0031556,
+            "cost_b": 0.0029456
+          },
+          "stable_left_only": false,
+          "stable_right_only": true,
+          "stable_both": false,
+          "stable_neither": false,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": true
+        },
+        {
+          "qid": "coding:arc195_e",
+          "difficulty": "hard",
+          "platform": "atcoder",
+          "claude_fable_5": {
+            "qid": "coding:arc195_e",
+            "lang": "hi",
+            "model": "claude_fable_5",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.50373,
+            "cost_b": 0.49308
+          },
+          "grok_4_3": {
+            "qid": "coding:arc195_e",
+            "lang": "hi",
+            "model": "grok_4_3",
+            "a_correct": false,
+            "b_correct": false,
+            "stable": false,
+            "a_usable": true,
+            "b_usable": true,
+            "a_status": "ok",
+            "b_status": "ok",
+            "cost_a": 0.02761435,
+            "cost_b": 0.02544935
+          },
+          "stable_left_only": false,
+          "stable_right_only": false,
+          "stable_both": false,
+          "stable_neither": true,
+          "a_left_only": false,
+          "a_right_only": false,
+          "b_left_only": false,
+          "b_right_only": false
+        }
+      ]
+    }
+  },
+  "en_grok43_vs_fable": {
+    "lang": "en",
+    "left": "grok_4_3",
+    "right": "claude_fable_5",
+    "stable_left": 9,
+    "stable_right": 7,
+    "stable_delta_left_minus_right": 2,
+    "a_left": 11,
+    "a_right": 7,
+    "b_left": 9,
+    "b_right": 9,
+    "a_delta": 4,
+    "b_delta": 0,
+    "stable_left_only_qids": [
+      "coding:3770",
+      "coding:3809",
+      "coding:abc390_f",
+      "coding:abc397_c"
+    ],
+    "stable_right_only_qids": [
+      "coding:3687",
+      "coding:abc391_e"
+    ],
+    "stable_both_qids": [
+      "coding:3736",
+      "coding:abc389_a",
+      "coding:abc390_c",
+      "coding:abc395_c",
+      "coding:abc396_c"
+    ],
+    "stable_neither_qids": [
+      "coding:3684",
+      "coding:abc388_f",
+      "coding:arc195_e"
+    ],
+    "stable_left_only_hard_qids": [
+      "coding:3770",
+      "coding:abc390_f"
+    ],
+    "items": [
+      {
+        "qid": "coding:3684",
+        "difficulty": "easy",
+        "platform": "leetcode",
+        "grok_4_3": {
+          "qid": "coding:3684",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0027309,
+          "cost_b": 0.0027009
+        },
+        "claude_fable_5": {
+          "qid": "coding:3684",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.02883,
+          "cost_b": 0.02798
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": true,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:3687",
+        "difficulty": "hard",
+        "platform": "leetcode",
+        "grok_4_3": {
+          "qid": "coding:3687",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00677215,
+          "cost_b": 0.00515965
+        },
+        "claude_fable_5": {
+          "qid": "coding:3687",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.12573,
+          "cost_b": 0.16118
+        },
+        "stable_left_only": false,
+        "stable_right_only": true,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": true,
+        "b_left_only": false,
+        "b_right_only": true
+      },
+      {
+        "qid": "coding:3736",
+        "difficulty": "easy",
+        "platform": "leetcode",
+        "grok_4_3": {
+          "qid": "coding:3736",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0018284,
+          "cost_b": 0.0017159
+        },
+        "claude_fable_5": {
+          "qid": "coding:3736",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.01522,
+          "cost_b": 0.01627
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": true,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:3770",
+        "difficulty": "hard",
+        "platform": "leetcode",
+        "grok_4_3": {
+          "qid": "coding:3770",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0083059,
+          "cost_b": 0.0081634
+        },
+        "claude_fable_5": {
+          "qid": "coding:3770",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": true,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "cap_hit",
+          "b_status": "ok",
+          "cost_a": 1.64454,
+          "cost_b": 1.42904
+        },
+        "stable_left_only": true,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": true,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:3809",
+        "difficulty": "medium",
+        "platform": "leetcode",
+        "grok_4_3": {
+          "qid": "coding:3809",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00138715,
+          "cost_b": 0.00202465
+        },
+        "claude_fable_5": {
+          "qid": "coding:3809",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.03345,
+          "cost_b": 0.03065
+        },
+        "stable_left_only": true,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": true,
+        "a_right_only": false,
+        "b_left_only": true,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc388_f",
+        "difficulty": "hard",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc388_f",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0171731,
+          "cost_b": 0.0207902
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc388_f",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 1.20851,
+          "cost_b": 0.68946
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": true,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc389_a",
+        "difficulty": "easy",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc389_a",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0006334,
+          "cost_b": 0.0006309
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc389_a",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00406,
+          "cost_b": 0.00406
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": true,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc390_c",
+        "difficulty": "medium",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc390_c",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00365715,
+          "cost_b": 0.00346715
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc390_c",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.04955,
+          "cost_b": 0.0516
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": true,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc390_f",
+        "difficulty": "hard",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc390_f",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00771465,
+          "cost_b": 0.00516715
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc390_f",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.18719,
+          "cost_b": 0.17899
+        },
+        "stable_left_only": true,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": true,
+        "a_right_only": false,
+        "b_left_only": true,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc391_e",
+        "difficulty": "hard",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc391_e",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00530935,
+          "cost_b": 0.00532935
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc391_e",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.03797,
+          "cost_b": 0.03797
+        },
+        "stable_left_only": false,
+        "stable_right_only": true,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": true
+      },
+      {
+        "qid": "coding:abc395_c",
+        "difficulty": "medium",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc395_c",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.00260465,
+          "cost_b": 0.00217715
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc395_c",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.02963,
+          "cost_b": 0.02633
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": true,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc396_c",
+        "difficulty": "medium",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc396_c",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0049906,
+          "cost_b": 0.0045731
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc396_c",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.05555,
+          "cost_b": 0.05755
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": true,
+        "stable_neither": false,
+        "a_left_only": false,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:abc397_c",
+        "difficulty": "medium",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:abc397_c",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": true,
+          "stable": true,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0025156,
+          "cost_b": 0.0028656
+        },
+        "claude_fable_5": {
+          "qid": "coding:abc397_c",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": true,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.0443,
+          "cost_b": 0.0372
+        },
+        "stable_left_only": true,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": false,
+        "a_left_only": true,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      },
+      {
+        "qid": "coding:arc195_e",
+        "difficulty": "hard",
+        "platform": "atcoder",
+        "grok_4_3": {
+          "qid": "coding:arc195_e",
+          "lang": "en",
+          "model": "grok_4_3",
+          "a_correct": true,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.01891185,
+          "cost_b": 0.02642935
+        },
+        "claude_fable_5": {
+          "qid": "coding:arc195_e",
+          "lang": "en",
+          "model": "claude_fable_5",
+          "a_correct": false,
+          "b_correct": false,
+          "stable": false,
+          "a_usable": true,
+          "b_usable": true,
+          "a_status": "ok",
+          "b_status": "ok",
+          "cost_a": 0.32516,
+          "cost_b": 0.35306
+        },
+        "stable_left_only": false,
+        "stable_right_only": false,
+        "stable_both": false,
+        "stable_neither": true,
+        "a_left_only": true,
+        "a_right_only": false,
+        "b_left_only": false,
+        "b_right_only": false
+      }
+    ]
+  },
+  "named_policies": {
+    "current_hold_argmax": {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "grok_4_3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 268,
+      "stable_accuracy_matrix": 0.9115646258503401,
+      "coding_stable_correct": 27,
+      "noncoding_stable_correct": 241,
+      "cost_a": 6.598164479105,
+      "cost_b": 6.847864594585,
+      "mean_billed_cost": 6.723014536845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.46221465
+    },
+    "coding_all_grok_4_3": {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "grok_4_3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 264,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "coding_stable_correct": 23,
+      "noncoding_stable_correct": 241,
+      "cost_a": 0.525202529105,
+      "cost_b": 0.5606620445849999,
+      "mean_billed_cost": 0.542932286845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 0.2821324
+    },
+    "coding_all_fable": {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "claude_fable_5",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 266,
+      "stable_accuracy_matrix": 0.9047619047619048,
+      "coding_stable_correct": 25,
+      "noncoding_stable_correct": 241,
+      "cost_a": 10.303319629105,
+      "cost_b": 9.858010144585,
+      "mean_billed_cost": 10.080664886845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 9.819865
+    },
+    "coding_top3_cheapest": {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "grok_4_3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 264,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "coding_stable_correct": 23,
+      "noncoding_stable_correct": 241,
+      "cost_a": 0.525202529105,
+      "cost_b": 0.5606620445849999,
+      "mean_billed_cost": 0.542932286845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 0.2821324
+    },
+    "coding_rank2_each_lang": {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "kimi_k3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.788770029105,
+      "cost_b": 3.0635110445850002,
+      "mean_billed_cost": 3.426140536845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.16534065
+    }
+  },
+  "top3_combinations": [
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "grok_4_3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 268,
+      "stable_accuracy_matrix": 0.9115646258503401,
+      "coding_stable_correct": 27,
+      "noncoding_stable_correct": 241,
+      "cost_a": 6.598164479105,
+      "cost_b": 6.847864594585,
+      "mean_billed_cost": 6.723014536845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.46221465
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "grok_4_3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 267,
+      "stable_accuracy_matrix": 0.9081632653061225,
+      "coding_stable_correct": 26,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.634452879105,
+      "cost_b": 3.1018937945850005,
+      "mean_billed_cost": 3.3681733368450004,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.1073734500000003
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "grok_4_3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 266,
+      "stable_accuracy_matrix": 0.9047619047619048,
+      "coding_stable_correct": 25,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.127044479105001,
+      "cost_b": 5.176744594585,
+      "mean_billed_cost": 5.151894536845001,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.89109465
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "kimi_k3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 266,
+      "stable_accuracy_matrix": 0.9047619047619048,
+      "coding_stable_correct": 25,
+      "noncoding_stable_correct": 241,
+      "cost_a": 8.223601629105,
+      "cost_b": 8.480601844585,
+      "mean_billed_cost": 8.352101736845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 8.09130185
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "claude_fable_5",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 266,
+      "stable_accuracy_matrix": 0.9047619047619048,
+      "coding_stable_correct": 25,
+      "noncoding_stable_correct": 241,
+      "cost_a": 10.303319629105,
+      "cost_b": 9.858010144585,
+      "mean_billed_cost": 10.080664886845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 9.819865
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "grok_4_3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 265,
+      "stable_accuracy_matrix": 0.9013605442176871,
+      "coding_stable_correct": 24,
+      "noncoding_stable_correct": 241,
+      "cost_a": 2.1633328791050004,
+      "cost_b": 1.4307737945849999,
+      "mean_billed_cost": 1.7970533368450001,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 1.53625345
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "grok_4_3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 265,
+      "stable_accuracy_matrix": 0.9013605442176871,
+      "coding_stable_correct": 24,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.488914129105,
+      "cost_b": 4.306632844585,
+      "mean_billed_cost": 3.897773486845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.6369736
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "grok_4_3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 265,
+      "stable_accuracy_matrix": 0.9013605442176871,
+      "coding_stable_correct": 24,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.285609479105,
+      "cost_b": 4.010734594585,
+      "mean_billed_cost": 4.648172036845001,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.387372150000001
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "kimi_k3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 265,
+      "stable_accuracy_matrix": 0.9013605442176871,
+      "coding_stable_correct": 24,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.259890029105,
+      "cost_b": 4.734631044585,
+      "mean_billed_cost": 4.997260536844999,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.73646065
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "claude_fable_5",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 265,
+      "stable_accuracy_matrix": 0.9013605442176871,
+      "coding_stable_correct": 24,
+      "noncoding_stable_correct": 241,
+      "cost_a": 7.339608029104999,
+      "cost_b": 6.112039344585001,
+      "mean_billed_cost": 6.7258236868450005,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.4650238
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "grok_4_3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 264,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "coding_stable_correct": 23,
+      "noncoding_stable_correct": 241,
+      "cost_a": 0.525202529105,
+      "cost_b": 0.5606620445849999,
+      "mean_billed_cost": 0.542932286845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 0.2821324
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "kimi_k3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 264,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "coding_stable_correct": 23,
+      "noncoding_stable_correct": 241,
+      "cost_a": 6.7524816291050005,
+      "cost_b": 6.809481844585,
+      "mean_billed_cost": 6.780981736845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.52018185
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "claude_fable_5",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 264,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "coding_stable_correct": 23,
+      "noncoding_stable_correct": 241,
+      "cost_a": 8.832199629105,
+      "cost_b": 8.186890144585,
+      "mean_billed_cost": 8.509544886845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 8.248745
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "grok_4_3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.814489479105,
+      "cost_b": 2.339614594585,
+      "mean_billed_cost": 3.077052036845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 2.8162521500000004
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "kimi_k3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.788770029105,
+      "cost_b": 3.0635110445850002,
+      "mean_billed_cost": 3.426140536845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.16534065
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "claude_fable_5",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.8684880291049994,
+      "cost_b": 4.440919344585001,
+      "mean_billed_cost": 5.154703686845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.8939038
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "kimi_k3",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.114351279105,
+      "cost_b": 5.939370094585,
+      "mean_billed_cost": 5.526860686845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 5.2660608
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "kimi_k3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 6.911046629105,
+      "cost_b": 5.643471844585,
+      "mean_billed_cost": 6.2772592368449995,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.01645935
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "claude_fable_5",
+        "hi": "claude_fable_5"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 7.194069279104999,
+      "cost_b": 7.3167783945850005,
+      "mean_billed_cost": 7.255423836845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.994623949999999
+    },
+    {
+      "coding_models": {
+        "ko": "claude_fable_5",
+        "en": "claude_fable_5",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 263,
+      "stable_accuracy_matrix": 0.8945578231292517,
+      "coding_stable_correct": 22,
+      "noncoding_stable_correct": 241,
+      "cost_a": 8.990764629105,
+      "cost_b": 7.020880144585001,
+      "mean_billed_cost": 8.005822386845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 7.7450225
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "grok_4_3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 262,
+      "stable_accuracy_matrix": 0.891156462585034,
+      "coding_stable_correct": 21,
+      "noncoding_stable_correct": 241,
+      "cost_a": 2.1763591291049997,
+      "cost_b": 1.469502844585,
+      "mean_billed_cost": 1.8229309868449999,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 1.5621311000000002
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "kimi_k3",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 262,
+      "stable_accuracy_matrix": 0.891156462585034,
+      "coding_stable_correct": 21,
+      "noncoding_stable_correct": 241,
+      "cost_a": 2.150639679105,
+      "cost_b": 2.1933992945850003,
+      "mean_billed_cost": 2.1720194868450005,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 1.9112196
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "claude_fable_5",
+        "hi": "grok_4_3"
+      },
+      "stable_correct": 262,
+      "stable_accuracy_matrix": 0.891156462585034,
+      "coding_stable_correct": 21,
+      "noncoding_stable_correct": 241,
+      "cost_a": 4.2303576791049995,
+      "cost_b": 3.570807594585,
+      "mean_billed_cost": 3.900582636845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.6397827499999997
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "kimi_k3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 261,
+      "stable_accuracy_matrix": 0.8877551020408163,
+      "coding_stable_correct": 20,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.439926629105,
+      "cost_b": 3.972351844585,
+      "mean_billed_cost": 4.706139236845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.44533935
+    },
+    {
+      "coding_models": {
+        "ko": "claude_opus_5",
+        "en": "claude_fable_5",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 261,
+      "stable_accuracy_matrix": 0.8877551020408163,
+      "coding_stable_correct": 20,
+      "noncoding_stable_correct": 241,
+      "cost_a": 7.519644629105,
+      "cost_b": 5.349760144585001,
+      "mean_billed_cost": 6.434702386845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 6.1739025000000005
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "kimi_k3",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 260,
+      "stable_accuracy_matrix": 0.8843537414965986,
+      "coding_stable_correct": 19,
+      "noncoding_stable_correct": 241,
+      "cost_a": 3.801796279105,
+      "cost_b": 3.1022400945850004,
+      "mean_billed_cost": 3.452018186845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 3.1912183
+    },
+    {
+      "coding_models": {
+        "ko": "grok_4_3",
+        "en": "claude_fable_5",
+        "hi": "claude_opus_5"
+      },
+      "stable_correct": 260,
+      "stable_accuracy_matrix": 0.8843537414965986,
+      "coding_stable_correct": 19,
+      "noncoding_stable_correct": 241,
+      "cost_a": 5.881514279105,
+      "cost_b": 4.479648394585,
+      "mean_billed_cost": 5.180581336845,
+      "n_billed_a": 294,
+      "n_billed_b": 294,
+      "coding_mean_billed_cost": 4.91978145
+    }
+  ],
+  "run_solo_argmax": {
+    "ko": {
+      "a_best": 9,
+      "b_best": 10,
+      "a_tied_models": [
+        "claude_fable_5"
+      ],
+      "b_tied_models": [
+        "claude_fable_5"
+      ],
+      "stable_best_model": "claude_fable_5",
+      "stable_best": 9
+    },
+    "en": {
+      "a_best": 11,
+      "b_best": 9,
+      "a_tied_models": [
+        "grok_4_3"
+      ],
+      "b_tied_models": [
+        "grok_4_3",
+        "claude_fable_5"
+      ],
+      "stable_best_model": "grok_4_3",
+      "stable_best": 9
+    },
+    "hi": {
+      "a_best": 10,
+      "b_best": 9,
+      "a_tied_models": [
+        "claude_fable_5"
+      ],
+      "b_tied_models": [
+        "claude_fable_5",
+        "grok_4_3",
+        "claude_sonnet_5"
+      ],
+      "stable_best_model": "claude_fable_5",
+      "stable_best": 9
+    }
+  },
+  "infra_in_coding_tables": [
+    {
+      "lang": "ko",
+      "model": "gpt_5_6_sol",
+      "infra_qids": [
+        "coding:abc390_c"
+      ],
+      "stable_correct": 5,
+      "stable_n": 13,
+      "matrix_denom": 14
+    },
+    {
+      "lang": "ko",
+      "model": "gpt_5_6_luna",
+      "infra_qids": [
+        "coding:abc390_c"
+      ],
+      "stable_correct": 4,
+      "stable_n": 13,
+      "matrix_denom": 14
+    }
+  ],
+  "pareto_neighbors": {
+    "opus": {
+      "stable_correct": 245,
+      "mean_billed_cost": 7.6888975,
+      "source": "reports/static_lookup_pareto.json model_points claude_opus_5"
+    },
+    "current_dominates_opus": true,
+    "hi_grok_swap": {
+      "stable_correct": 267,
+      "mean_billed_cost": 3.3681733368450004,
+      "dominates_opus": true
+    }
+  },
+  "noncoding_residual_by_lang": {
+    "ko": 1,
+    "en": 0,
+    "hi": 0,
+    "note": "instruction-ko only"
+  }
+}

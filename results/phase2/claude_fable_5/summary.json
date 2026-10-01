@@ -1,0 +1,204 @@
+{
+  "n": 294,
+  "status": {
+    "ok": 289,
+    "parse_failed": 4,
+    "cap_hit": 1
+  },
+  "n_parse_failed": 4,
+  "n_cap_hit": 1,
+  "n_infra_unscored": 0,
+  "n_correct": 249,
+  "denom_matrix_294": 294,
+  "accuracy_matrix_parse_as_0": 0.8469387755102041,
+  "denom_parse_ok_not_infra_not_caphit": 289,
+  "n_correct_parse_ok_not_infra_not_caphit": 249,
+  "scoring_pin": {
+    "pinned_at": "2026-08-21T13:22:00Z",
+    "matrix_n": 294,
+    "parse_failed_counts_as": "incorrect",
+    "cap_hit_counts_as": "incorrect",
+    "sandbox_error_counts_as": "unscored_retry",
+    "http_error_counts_as": "unscored_retry",
+    "api_timeout_counts_as": "unscored_retry",
+    "report_denominators": [
+      "matrix_294",
+      "parse_ok_not_infra_not_caphit",
+      "cap_hit"
+    ],
+    "completed_statuses": [
+      "ok",
+      "parse_failed",
+      "cap_hit"
+    ],
+    "retry_statuses": [
+      "http_error",
+      "timeout",
+      "sandbox_error"
+    ],
+    "infra_retry_budget": 3,
+    "infra_after_budget": "leave_null_no_oracle",
+    "pin_commit": "3be49a0",
+    "pin_commit_time": "2026-08-21T13:23:26Z",
+    "cap_hit_detect": "finish_reason in [length, max_tokens] or completion_tokens >= cap",
+    "cap_hit_max_tokens_alias": true,
+    "answer_text": "message.content"
+  },
+  "max_tokens": {
+    "same_for_all_models": true,
+    "reason": "reasoning_tokens exhausts cap before content; finish_reason=length",
+    "approved_at": "2026-08-22",
+    "default": 8192,
+    "instruction": 8192,
+    "coding": 32768,
+    "previous": {
+      "default": 1024,
+      "instruction": 2048,
+      "coding": 4096
+    },
+    "smoke_cap_hit_zero_is_not_proof": true
+  },
+  "by_bucket": {
+    "knowledge": {
+      "n": 42,
+      "parse_failed": 1,
+      "cap_hit": 0,
+      "correct": 32,
+      "parse_ok_not_infra_not_caphit": 41,
+      "infra": 0
+    },
+    "math": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 42,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "instruction": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 33,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "extraction": {
+      "n": 42,
+      "parse_failed": 3,
+      "cap_hit": 0,
+      "correct": 37,
+      "parse_ok_not_infra_not_caphit": 39,
+      "infra": 0
+    },
+    "toolcall": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 37,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "abstention": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 42,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "coding": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 1,
+      "correct": 26,
+      "parse_ok_not_infra_not_caphit": 41,
+      "infra": 0
+    }
+  },
+  "by_lang": {
+    "en": {
+      "n": 98,
+      "parse_failed": 0,
+      "cap_hit": 1,
+      "correct": 81,
+      "parse_ok_not_infra_not_caphit": 97
+    },
+    "ko": {
+      "n": 98,
+      "parse_failed": 3,
+      "cap_hit": 0,
+      "correct": 83,
+      "parse_ok_not_infra_not_caphit": 95
+    },
+    "hi": {
+      "n": 98,
+      "parse_failed": 1,
+      "cap_hit": 0,
+      "correct": 85,
+      "parse_ok_not_infra_not_caphit": 97
+    }
+  },
+  "parse_fail_lang_bucket": {
+    "knowledge": {
+      "ko": 0,
+      "en": 0,
+      "hi": 1
+    },
+    "extraction": {
+      "ko": 3,
+      "en": 0,
+      "hi": 0
+    }
+  },
+  "cap_hit_lang_bucket": {
+    "coding": {
+      "ko": 0,
+      "en": 1,
+      "hi": 0
+    }
+  },
+  "by_scorer": {
+    "mcq": 42,
+    "exact": 42,
+    "ifeval": 42,
+    "json_match": 42,
+    "ast": 42,
+    "abstain": 42,
+    "exec": 42
+  },
+  "scorers_seen": [
+    "abstain",
+    "ast",
+    "exact",
+    "exec",
+    "ifeval",
+    "json_match",
+    "mcq"
+  ],
+  "scorers_expected": [
+    "mcq",
+    "exact",
+    "ast",
+    "abstain",
+    "exec",
+    "ifeval",
+    "json_match"
+  ],
+  "qid_three_langs": true,
+  "n_qid": 98,
+  "prompt_tokens": 96876,
+  "completion_tokens": 275326,
+  "cost_usd_billed": 14.73309,
+  "cost_usd_catalog_config": 14.73506,
+  "cost_usd_openrouter_list_0.0679_0.168": 0.052833,
+  "sandbox_probe": {
+    "correct_stdin": true,
+    "timeout_fires": true,
+    "network_blocked": true,
+    "timeout_kind": "timeout",
+    "network_kind": "network_blocked"
+  },
+  "model_key": "claude_fable_5",
+  "labels_path": "results/phase2/claude_fable_5/labels.jsonl"
+}

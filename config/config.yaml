@@ -1,0 +1,325 @@
+# 010 파일럿 설정
+# 단가: USD per 1M tokens. 2026-08-21 확인.
+# model_id 는 OpenRouter 기준. 2026-08-22 실호출: 14/14 catalog 존재, routed==requested.
+
+seed: 42
+languages: [ko, en, hi]
+n_per_bucket_per_lang: 14   # 7버킷 x 3언어 x 14 = 294 쿼리
+# 파일럿 판정은 전체 합산에서만 읽는다. 셀당 14개도 버킷별 해석에는 부족하다.
+max_concurrency: 8
+temperature: 0.0
+snapshot_date: "2026-08-21"
+
+# 채점 집계 핀. 스모크 BLOCK 이후, 14모델 실행 전에 고정. 14모델 점수를 보고 바꾸지 않는다.
+# 2026-08-21T13:22:00Z
+scoring:
+  pinned_at: "2026-08-21T13:22:00Z"
+  matrix_n: 294
+  parse_failed_counts_as: incorrect   # correct=0. usable answer absent.
+  cap_hit_counts_as: incorrect        # correct=0. same matrix as parse_failed. status distinct.
+  sandbox_error_counts_as: unscored_retry  # infra. not 0, not 1. resume retries.
+  http_error_counts_as: unscored_retry
+  api_timeout_counts_as: unscored_retry
+  report_denominators:
+    - matrix_294          # parse_failed and cap_hit as 0; infra excluded until retry fills them
+    - parse_ok_not_infra_not_caphit  # diagnostic; never the oracle denominator
+    - cap_hit             # diagnostic split; do not fold into parse_failed
+  completed_statuses: [ok, parse_failed, cap_hit]
+  retry_statuses: [http_error, timeout, sandbox_error]
+  infra_retry_budget: 3          # same grade as reviewer CALL_ATTEMPTS
+  infra_after_budget: leave_null_no_oracle
+  pin_commit: 3be49a0
+  pin_commit_time: "2026-08-21T13:23:26Z"
+  cap_hit_detect: finish_reason in [length, max_tokens] or completion_tokens >= cap
+  cap_hit_max_tokens_alias: true  # OpenRouter may emit max_tokens; same event as length
+  answer_text: message.content   # not message.reasoning. empty content = parse_failed.
+
+# 파레토 1차 축. 14모델 점수 보기 전에 고정. billed 와 catalog 를 한 그림에 섞지 않는다.
+# 2026-08-22 재프로브: 14/14 catalog 일치, routed==requested, usage.cost 있음.
+cost_axis:
+  pinned_at: "2026-08-21T17:05:00Z"
+  primary: billed_usage_cost
+  catalog_config: appendix_reproduction_only
+  openrouter_list: recorded_mismatch_only
+  mix_billed_and_catalog_per_model: false
+  no_usage_cost:
+    pareto_primary: exclude_point
+    accuracy_table: include
+    impute_catalog: false
+  probe_2026_08_22:
+    n_models: 14
+    n_in_catalog: 14
+    n_http_ok: 14
+    n_routed_equals_requested: 14
+    n_has_usage_cost: 14
+    gemini_3_1_pro_id: google/gemini-3.1-pro-preview
+    gemini_3_7_flash_empty_usage: short_max_tokens_4_artifact
+  unresolved: null
+
+# 출력 캡. 전 모델 동일. 2026-08-22 승인. 설정 오류 수정(reasoning 절단). 14모델 점수 이전.
+max_tokens:
+  same_for_all_models: true
+  reason: "reasoning_tokens exhausts cap before content; finish_reason=length"
+  approved_at: "2026-08-22"
+  default: 8192          # knowledge math toolcall abstention extraction
+  instruction: 8192
+  coding: 32768          # 제안 16384에서 상향. hard 층화 + 대형 사고 모델.
+  previous:
+    default: 1024
+    instruction: 2048
+    coding: 4096
+  smoke_cap_hit_zero_is_not_proof: true
+
+# 공개물은 라벨 행렬(qid, model, correct, tokens, cost)만. 원문·모델 출력은 재배포하지 않는다.
+# 사용 조건만 지킨다. NC 라이선스 소스는 사용하지 않는다.
+# 영어 원본 -> 단일 파이프라인으로 ko/hi 번역. 버킷마다 타인 번역본을 섞지 않는다.
+# knowledge 만 예외: MMLU-ProX 의 ko/en/hi 병렬본 (논문 한계로 명시).
+
+translation:
+  source_lang: en
+  target_langs: [ko, hi]
+  cache_dir: data/
+  settings_file: translation.yaml
+  # 품질 교체 이력은 translation.yaml selection_log. 판정 수치는 번역기별로 reports/ 에 남기고 폐기하지 않는다.
+  primary_model: openai/gpt-4.1
+  fallback_models: []
+  fallback_order_frozen: [cohere/command-a, openai/gpt-4.1, google/gemini-2.5-flash]
+  fallback_chain_closed: true
+  checker: eval/quantity_checker.py
+  checker_by_bucket:
+    math: v3
+    instruction: v2
+    extraction: v2
+    toolcall: v2
+    abstention: v2
+    coding: v2
+    knowledge: v2
+  checker_current: v3          # math
+  checker_v3_bucket: math
+  checker_v3_adopted: true
+  checker_other_buckets: v2    # identifiers / SKU / dates / instruction markers+quantities
+
+  temperature: 0.0
+  seed: 42
+  do_not_translate:
+    - numbers
+    - formulas
+    - code
+    - tests
+    - identifiers
+    - function schemas
+    - json keys
+    - proper names
+    - sku
+    - dates
+    - markdown_markers
+    - instruction_kwargs
+  quality_check:
+    # 데이터로 쓰지 않음. 같은 MGSM 문항에서 BenchMAX_Math ko 와 불일치율만 보고.
+    reference: LLaMAX/BenchMAX_Math
+    reference_lang: ko
+    reference_license: cc-by-4.0
+
+sources:
+  # 논문 부록에 그대로 실을 핀. 조사일 2026-08-21.
+  mmlu_prox:
+    hub: li-lab/MMLU-ProX
+    revision: 8e6106a6c6ce1c5027e66cc338143cf997b2aa09
+    license: mit
+  mgsm:
+    hub: juletxara/mgsm
+    config: en
+    revision: b2f13d426afe3be8d69a7e739b36724db8b66bbc
+    license: cc-by-sa-4.0
+    n_en: 250
+    qid_format: "math:mgsm_{index:03d}"
+    equation_solution_in_hub: empty   # 2026-08-21. 250/250 null
+    # 필수 수량 핀. 채점 데이터가 아님. 영어 문항 완전일치로 GSM8K answer 의 << >> 를 가져온다.
+    equation_join:
+      hub: openai/gsm8k
+      config: main
+      revision: 740312add88f781978c0658806c59bc2815b9866
+      license: mit
+      match: english_question_whitespace_normalized
+      annotation: double_angle_calc  # <<a*b=c>>
+      pin_file: data/math_mgsm14_gsm8k_equations.json
+  bfcl:
+    repo: https://github.com/ShishirPatil/gorilla
+    commit: 6ea57973c7a6097fd7c5915698c54c17c5b1b6c8
+    path: berkeley-function-call-leaderboard/bfcl_eval/data
+    license: apache-2.0
+    mirror: huggingface-forbidden
+    pin_file: data/toolcall_bfcl14.json
+    abstention_pin_file: data/abstention_bfcl14.json
+    qid_format: "toolcall:{id}"
+    abstention_qid_format: "abstention:{id}"
+    field: utterance
+    schema_translated: false
+    stratify_type:
+      simple_python: 4
+      multiple: 4
+      parallel: 3
+      parallel_multiple: 3
+    replacement_cap: 5
+    replacement_ordinary_gold: do_not_replace
+    toolcall_files:
+      - BFCL_v4_simple_python.json
+      - BFCL_v4_multiple.json
+      - BFCL_v4_parallel.json
+      - BFCL_v4_parallel_multiple.json
+    abstention_files:
+      - BFCL_v4_irrelevance.json
+    abstention_replacement_cap: 5
+    abstention_schema_proximity_leak: report_do_not_fix
+  livecodebench:
+    hub: livecodebench/code_generation_lite
+    revision: 0fe84c3912ea0c4d4a78037083943e8f0c4dd505
+    release_tag: release_v6
+    release_v7: absent               # 2026-08-21 확인. test7.jsonl / 태그 없음
+    contest_date_min: "2025-01-01"
+    contest_date_max_in_release: "2025-04-06"  # 창 종료. 이 이후 문항 없음
+    pool_n_after_cut: 182            # easy 45 / medium 55 / hard 82
+    pin_file: data/coding_lcb14.json
+    qid_format: "coding:{question_id}"
+    field: question_content_head
+    tail_sent_to_translator: false
+    starter_sent_to_translator: false
+    tests_sent_to_translator: false
+    replacement_cap: 5
+    contamination_control: none      # 오염 회피가 아님. 다수 모델에 사후 데이터 아님
+    # 오염된 문항은 정답 패턴이 겹쳐 coding 갭이 다른 버킷보다 작을 수 있음 (관측 신호).
+    # 해석을 위해 난이도 층화. 풀 비율 45/55/82 -> 14개에서 3/5/6.
+    stratify_difficulty:
+      easy: 3
+      medium: 5
+      hard: 6
+    license_harness: mit             # github.com/LiveCodeBench/LiveCodeBench
+    license_hf_card: cc              # 카드가 변형을 명시하지 않음
+  ifeval:
+    hub: google/IFEval
+    revision: 966cd89545d6b6acfd7638bc708b98261ca58e84
+    license: apache-2.0
+    transfer_table: data/ifeval_transfer_table.csv
+    qid_format: "instruction:ifeval_{index:03d}"
+    pin_file: data/instruction_ifeval14.json
+    field: prompt
+    kwargs_translated: false
+    # 채택 7종. kwargs를 번역 정답으로 쓰지 않는 유형만.
+    # quotation 제외 (ASCII " vs 언어별 따옴표 편향). 별표 4종 제외 (kwargs 번역=채점 정답).
+    adopted_instruction_ids:
+      - combination:two_responses
+      - detectable_content:number_placeholders
+      - detectable_format:json_format
+      - detectable_format:number_bullet_lists
+      - detectable_format:number_highlighted_sections
+      - detectable_format:title
+      - length_constraints:number_paragraphs
+    pool_n_after_filter: 86          # 541 중 채택 유형만. quotation 포함 문항은 이 집합에 없음
+    # 유형별 층화. 7종 x 2 = 14. 단일 제약 문항 우선.
+    stratify_instruction_id:
+      n_per_type: 2
+    replacement_cap: 5   # 14의 36%. 초과 시 중단. 선택 편향 방지.
+    replacement_cap_note: >
+      원표본에서 뺀 문항 + 무효로 버린 대체 후보. 통과할 때까지 무한 재추출 금지.
+  extraction:
+    origin: in-house
+    license: apache-2.0
+    public_release: false
+    draft: data/extraction_draft.jsonl
+    # 고유명·식별자는 본문 라틴 보존. 범주형은 영어 스키마 enum. gold enum 키는 3언어 동일.
+
+# model_id 실호출 검증 2026-08-22: 14/14 OpenRouter catalog 존재, routed==requested, 다른 모델로 치환 없음.
+models:
+  # --- OpenAI ---
+  - key: gpt_5_6_sol
+    model_id: "openai/gpt-5.6-sol"
+    price_in: 5.00
+    price_out: 30.00
+  - key: gpt_5_6_terra
+    model_id: "openai/gpt-5.6-terra"
+    price_in: 2.00                          # 7/30 -20%
+    price_out: 12.00
+  - key: gpt_5_6_luna
+    model_id: "openai/gpt-5.6-luna"
+    price_in: 0.20                          # 7/30 -80%
+    price_out: 1.20
+
+  # --- Anthropic ---
+  - key: claude_fable_5
+    model_id: "anthropic/claude-fable-5"
+    price_in: 10.00
+    price_out: 50.00
+  - key: claude_opus_5
+    model_id: "anthropic/claude-opus-5"
+    price_in: 5.00
+    price_out: 25.00
+  - key: claude_sonnet_5
+    model_id: "anthropic/claude-sonnet-5"
+    price_in: 2.00                          # 8/31 까지 도입가. 9/1 부터 3.00
+    price_out: 10.00                        # 9/1 부터 15.00
+
+  # --- Google (3.5 Pro 미출시. 상위 티어는 3.1 Pro) ---
+  - key: gemini_3_1_pro
+    model_id: "google/gemini-3.1-pro-preview"  # 오타 정정. 구 id google/gemini-3.1-pro 는 HTTP 400.
+    price_in: 2.00                          # 200K 초과 시 상위 미터
+    price_out: 12.00
+  - key: gemini_3_7_flash
+    model_id: "google/gemini-3.7-flash"
+    price_in: 0.75                          # 도입가, 2027-01-01 부터 1.50
+    price_out: 3.75                         # 도입가, 2027-01-01 부터 7.50
+                                            # OpenRouter 표기는 0.375/1.875 - 실청구 확인 필요
+
+  # --- xAI ---
+  - key: grok_4_6
+    model_id: "x-ai/grok-4.6"
+    price_in: 2.00                          # 200K 이상 프롬프트는 전체가 2배
+    price_out: 6.00
+  - key: grok_4_3
+    model_id: "x-ai/grok-4.3"
+    price_in: 1.25
+    price_out: 2.50
+
+  # --- DeepSeek (직접 API 단가) ---
+  - key: deepseek_v4_pro
+    model_id: "deepseek/deepseek-v4-pro"    # OpenRouter 는 1.188/3.564
+    price_in: 0.435
+    price_out: 0.87
+  - key: deepseek_v4_flash
+    model_id: "deepseek/deepseek-v4-flash"  # OpenRouter 는 0.0679/0.168
+    price_in: 0.14
+    price_out: 0.28
+
+  # --- Moonshot ---
+  - key: kimi_k3
+    model_id: "moonshotai/kimi-k3"
+    price_in: 2.60
+    price_out: 13.00
+
+  # --- Alibaba ---
+  - key: qwen3_7_plus
+    model_id: "qwen/qwen3.7-plus"
+    price_in: 0.32
+    price_out: 1.28
+
+buckets:
+  - name: knowledge      # MMLU-ProX ko/en/hi 병렬. 유일한 타인 번역 앵커.
+    scorer: mcq
+    source: mmlu_prox
+  - name: math           # juletxara/mgsm en 250에서 시드 샘플 후 우리 ko/hi 번역
+    scorer: exact
+    source: mgsm
+  - name: toolcall       # BFCL v4 non-live. 발화만 번역, 스키마는 영어 고정
+    scorer: ast
+    source: bfcl
+  - name: abstention     # BFCL v4 irrelevance. 툴 미호출이 정답
+    scorer: abstain
+    source: bfcl
+  - name: coding         # LiveCodeBench. 서술만 번역. 오염 통제 없음. 난이도 층화 3/5/6
+    scorer: exec
+    source: livecodebench
+  - name: instruction    # IFEval 채택 7종만. 프롬프트만 번역. 유형 층화 2개씩
+    scorer: ifeval
+    source: ifeval
+  - name: extraction     # 자체 구성. 공개 릴리스에서는 제외
+    scorer: json_match
+    source: extraction

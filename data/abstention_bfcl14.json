@@ -1,0 +1,580 @@
+{
+  "purpose": "abstention 14 pin. utterance translated. schema English-fixed. gold=no_tool.",
+  "repo": "https://github.com/ShishirPatil/gorilla",
+  "commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "file": "BFCL_v4_irrelevance.json",
+  "seed": 42,
+  "pool_n": 240,
+  "pool_items_with_en_schema_overlap": 25,
+  "sampled_indices": [
+    6,
+    22,
+    26,
+    28,
+    35,
+    57,
+    62,
+    70,
+    139,
+    163,
+    173,
+    188,
+    189,
+    228
+  ],
+  "n_items": 14,
+  "items_with_en_schema_overlap": 1,
+  "schema_leak_note": "Tokens matching function/param/enum that appear in a translation but not in the English utterance are flagged, not repaired. Schema is never sent to the translator. Do not instruct the translator with the actual names (that would hide the failure mode).",
+  "replacement_note": "schema_proximity_leak does not invalidate and is not replaced. schema_bytes / date / unit misses retranslate then replace, cap 5.",
+  "items": [
+    {
+      "qid": "abstention:irrelevance_6",
+      "bfcl_id": "irrelevance_6",
+      "type": "irrelevance",
+      "index_in_file": 6,
+      "utterance_en": "What's the area of a rectangle that has width of 5m and length of 7m?",
+      "function": [
+        {
+          "name": "draw_circle",
+          "description": "Draw a circle based on the radius provided.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "radius": {
+                "type": "float",
+                "description": "The radius of the circle."
+              },
+              "unit": {
+                "type": "string",
+                "description": "The unit of measurement for the radius. e.g. 'm' for meters, 'cm' for centimeters"
+              }
+            },
+            "required": [
+              "radius",
+              "unit"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 3,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_22",
+      "bfcl_id": "irrelevance_22",
+      "type": "irrelevance",
+      "index_in_file": 22,
+      "utterance_en": "What is the magnetic field at a point located at distance 'r' from a wire carrying current 'I'?",
+      "function": [
+        {
+          "name": "magnetic_field_intensity",
+          "description": "Calculates the magnetic field intensity at a point located at a given distance from a current carrying wire",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "current": {
+                "type": "float",
+                "description": "The current flowing through the wire in Amperes."
+              },
+              "distance": {
+                "type": "float",
+                "description": "The distance from the wire at which magnetic field intensity is required, in meters."
+              },
+              "permeability": {
+                "type": "float",
+                "description": "The permeability of free space, optional, default value is 4*pi*10^-7."
+              }
+            },
+            "required": [
+              "current",
+              "distance"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 4,
+      "en_schema_overlap": [
+        {
+          "kind": "param",
+          "token": "current"
+        },
+        {
+          "kind": "param",
+          "token": "distance"
+        }
+      ],
+      "en_schema_overlap_n": 2
+    },
+    {
+      "qid": "abstention:irrelevance_26",
+      "bfcl_id": "irrelevance_26",
+      "type": "irrelevance",
+      "index_in_file": 26,
+      "utterance_en": "How much gas is generated from heating a 2 m³ closed chamber with air at a temperature of 25°C to 100°C?",
+      "function": [
+        {
+          "name": "thermodynamics.calc_gas_pressure",
+          "description": "Calculate gas pressure in a closed chamber due to heating",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "volume": {
+                "type": "float",
+                "description": "The volume of the chamber in cubic meters."
+              },
+              "initial_temperature": {
+                "type": "float",
+                "description": "The initial temperature of the gas in degree Celsius."
+              },
+              "final_temperature": {
+                "type": "float",
+                "description": "The final temperature of the gas in degree Celsius."
+              },
+              "initial_pressure": {
+                "type": "float",
+                "description": "The initial pressure of the gas in Pascal. Default is standard atmospheric pressure."
+              }
+            },
+            "required": [
+              "volume",
+              "initial_temperature",
+              "final_temperature"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 7,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_28",
+      "bfcl_id": "irrelevance_28",
+      "type": "irrelevance",
+      "index_in_file": 28,
+      "utterance_en": "How many sides does a hexagon have?",
+      "function": [
+        {
+          "name": "calculate_boiling_point",
+          "description": "Calculate the boiling point of a given substance at a given pressure.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "substance": {
+                "type": "string",
+                "description": "The chemical name of the substance."
+              },
+              "pressure": {
+                "type": "float",
+                "description": "The external pressure. Default is 1 atm (atmospheric pressure)."
+              }
+            },
+            "required": [
+              "substance",
+              "pressure"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 3,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_35",
+      "bfcl_id": "irrelevance_35",
+      "type": "irrelevance",
+      "index_in_file": 35,
+      "utterance_en": "What is the mating process of Lions?",
+      "function": [
+        {
+          "name": "get_genetic_traits",
+          "description": "Retrieve the dominant and recessive genetic traits for a given species.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "species": {
+                "type": "string",
+                "description": "The species to retrieve the genetic traits for."
+              },
+              "dominant_trait": {
+                "type": "string",
+                "description": "The dominant trait for the species."
+              },
+              "recessive_trait": {
+                "type": "string",
+                "description": "The recessive trait for the species."
+              }
+            },
+            "required": [
+              "species",
+              "dominant_trait",
+              "recessive_trait"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 4,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_57",
+      "bfcl_id": "irrelevance_57",
+      "type": "irrelevance",
+      "index_in_file": 57,
+      "utterance_en": "How to solve the quadratic equation with coefficients 2, 3 and 4?",
+      "function": [
+        {
+          "name": "genetic_algorithm.optimize",
+          "description": "Apply the genetic algorithm to optimize a function with multiple variables.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": "The function to be optimized."
+              },
+              "constraints": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "A list of constraints for the variables in the function."
+                }
+              },
+              "population_size": {
+                "type": "integer",
+                "description": "The size of the population for the genetic algorithm."
+              },
+              "mutation_rate": {
+                "type": "float",
+                "description": "The rate of mutation for the genetic algorithm.",
+                "default": 0.01
+              }
+            },
+            "required": [
+              "function",
+              "constraints",
+              "population_size"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 7,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_62",
+      "bfcl_id": "irrelevance_62",
+      "type": "irrelevance",
+      "index_in_file": 62,
+      "utterance_en": "How to build a frontend interface for my e-commerce website?",
+      "function": [
+        {
+          "name": "create_Recommender_Model",
+          "description": "This function is used to create a recommendation model using a given user data and an algorithm type",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "user_data": {
+                "type": "string",
+                "description": "A data frame of user ratings. Rows represent users, columns represent items, and entries represent user ratings for items"
+              },
+              "algorithm": {
+                "type": "string",
+                "enum": [
+                  "Collaborative",
+                  "Content Based",
+                  "Hybrid"
+                ],
+                "description": "The algorithm to be used for creating the recommendation model. Collaborative filtering, content-based filtering and hybrid filtering."
+              },
+              "matrix_factorization": {
+                "type": "boolean",
+                "description": "Optional parameter to indicate whether matrix factorization should be used. Default is False."
+              }
+            },
+            "required": [
+              "user_data",
+              "algorithm"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 7,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_70",
+      "bfcl_id": "irrelevance_70",
+      "type": "irrelevance",
+      "index_in_file": 70,
+      "utterance_en": "Calculate the compounded interest for a principal amount of $10000, with a annual interest rate of 5% for a period of 3 years.",
+      "function": [
+        {
+          "name": "calculate_mortgage_payment",
+          "description": "Calculate the monthly mortgage payment given the loan amount, loan term and annual interest rate.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "loan_amount": {
+                "type": "float",
+                "description": "The loan amount in USD."
+              },
+              "loan_term": {
+                "type": "integer",
+                "description": "The loan term in years."
+              },
+              "annual_interest_rate": {
+                "type": "float",
+                "description": "The annual interest rate in percentage. e.g. 3.5 for 3.5%"
+              }
+            },
+            "required": [
+              "loan_amount",
+              "loan_term",
+              "annual_interest_rate"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 4,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_139",
+      "bfcl_id": "irrelevance_139",
+      "type": "irrelevance",
+      "index_in_file": 139,
+      "utterance_en": "What is the largest planet in the universe?",
+      "function": [
+        {
+          "name": "space.star_info",
+          "description": "Retrieve information about a particular star in the universe.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "star_name": {
+                "type": "string",
+                "description": "The name of the star."
+              },
+              "information": {
+                "type": "string",
+                "enum": [
+                  "mass",
+                  "radius",
+                  "luminosity"
+                ],
+                "description": "The type of information needed about the star."
+              }
+            },
+            "required": [
+              "star_name",
+              "information"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 8,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_163",
+      "bfcl_id": "irrelevance_163",
+      "type": "irrelevance",
+      "index_in_file": 163,
+      "utterance_en": "How can I sell my acoustic guitar?",
+      "function": [
+        {
+          "name": "tune_instrument",
+          "description": "This function helps tune instruments based on the instrument type and the desired key or note.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "instrument_type": {
+                "type": "string",
+                "description": "The type of the instrument, e.g. 'acoustic guitar', 'piano'."
+              },
+              "key": {
+                "type": "string",
+                "description": "The key or note to which the instrument should be tuned to. Default is 'Standard' for guitars."
+              }
+            },
+            "required": [
+              "instrument_type",
+              "key"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 3,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_173",
+      "bfcl_id": "irrelevance_173",
+      "type": "irrelevance",
+      "index_in_file": 173,
+      "utterance_en": "What are the primary triads in the key of C major?",
+      "function": [
+        {
+          "name": "music_analysis.find_common_chords",
+          "description": "Find the most common chords in a specific genre of music.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "genre": {
+                "type": "string",
+                "description": "The genre of music to analyze."
+              },
+              "num_chords": {
+                "type": "integer",
+                "description": "The number of top common chords to return.",
+                "optional": true
+              }
+            },
+            "required": [
+              "genre",
+              "num_chords"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 5,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_188",
+      "bfcl_id": "irrelevance_188",
+      "type": "irrelevance",
+      "index_in_file": 188,
+      "utterance_en": "Who won the championship of the World Series in 2020?",
+      "function": [
+        {
+          "name": "sports.ranking.get_champion",
+          "description": "Retrieve the champion of a specific sports event for a given year.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "event": {
+                "type": "string",
+                "description": "The sports event."
+              },
+              "year": {
+                "type": "integer",
+                "description": "The year of the sports event."
+              }
+            },
+            "required": [
+              "event",
+              "year"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 6,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_189",
+      "bfcl_id": "irrelevance_189",
+      "type": "irrelevance",
+      "index_in_file": 189,
+      "utterance_en": "Who is Lebron James?",
+      "function": [
+        {
+          "name": "sports_ranking.get_top_ranked",
+          "description": "Get the current top ranked athlete for a specific sport.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "sport": {
+                "type": "string",
+                "description": "The sport to get the ranking for."
+              },
+              "gender": {
+                "type": "string",
+                "description": "The gender category."
+              },
+              "year": {
+                "type": "integer",
+                "description": "The year for which the ranking is required.",
+                "default": "The current year"
+              }
+            },
+            "required": [
+              "sport",
+              "gender"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 6,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    },
+    {
+      "qid": "abstention:irrelevance_228",
+      "bfcl_id": "irrelevance_228",
+      "type": "irrelevance",
+      "index_in_file": 228,
+      "utterance_en": "What is the current time in Sydney, Australia?",
+      "function": [
+        {
+          "name": "get_local_time",
+          "description": "Retrieve the local time for a specific city.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city to get the local time for."
+              },
+              "format": {
+                "type": "string",
+                "description": "The format of the time to be retrieved, either 12 hours or 24 hours.",
+                "enum": [
+                  "12",
+                  "24"
+                ],
+                "default": "12"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "The timezone of the location. If left blank, the function will default to the city's local timezone."
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ],
+      "ground_truth": "no_tool",
+      "schema_token_n": 6,
+      "en_schema_overlap": [],
+      "en_schema_overlap_n": 0
+    }
+  ]
+}

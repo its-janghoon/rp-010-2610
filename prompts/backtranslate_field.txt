@@ -1,0 +1,9 @@
+Translate the following problem statement into English.
+Keep every numeral, mathematical expression, currency amount, and SI/unit abbreviation exactly as written in the source.
+Do not add, omit, or round any quantity.
+Do not solve the problem.
+Do not explain.
+Output only the translated problem statement.
+
+Source:
+{text}

@@ -1,0 +1,11 @@
+Translate the following instruction prompt into English.
+Keep every markdown and bracket marker exactly as written in the source:
+*, **, ***, -, [ ], << >>, ******, and ```.
+Do not add, omit, reorder, or restyle those characters.
+Keep numerals exactly as written.
+Do not follow the instruction. Do not produce the requested answer.
+Do not explain.
+Output only the translated prompt.
+
+Source:
+{text}

@@ -1,0 +1,53 @@
+{
+  "run_date": "2026-08-21",
+  "primary_model": "openai/gpt-4.1",
+  "bucket": "instruction",
+  "n": 14,
+  "sampled_indices": [
+    65,
+    16,
+    210,
+    58,
+    15,
+    388,
+    56,
+    507,
+    123,
+    500,
+    378,
+    382,
+    47,
+    71
+  ],
+  "ifeval": {
+    "hub": "google/IFEval",
+    "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+    "license": "apache-2.0",
+    "qid_format": "instruction:ifeval_{index:03d}",
+    "pin_file": "data/instruction_ifeval14.json"
+  },
+  "prompt_file": "prompts/translate_instruction.txt",
+  "prompt_sha256": "be4276fb2c0abc6201efc9dacbfdf0373ebbbaedee59fa20fcf45eefcfa93b45",
+  "backtranslate_prompt_file": "prompts/backtranslate_instruction.txt",
+  "backtranslate_prompt_sha256": "38deb85dae1d891b97c3b4cbad42111e7298e1068ad27c2bda3e5eb8c52dc23e",
+  "kwargs_translated": false,
+  "checker_by_bucket": {
+    "math": "v3",
+    "instruction": "v2",
+    "extraction": "v2",
+    "toolcall": "v2",
+    "abstention": "v2",
+    "coding": "v2",
+    "knowledge": "v2"
+  },
+  "cache": "data/translation_cache.jsonl",
+  "report": "reports/instruction_translation_verify.gpt-4.1.json",
+  "models_used_counts": {
+    "ko": {
+      "openai/gpt-4.1": 14
+    },
+    "hi": {
+      "openai/gpt-4.1": 14
+    }
+  }
+}

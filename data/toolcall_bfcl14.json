@@ -1,0 +1,1740 @@
+{
+  "purpose": "toolcall 14 pin. utterance translated. schema English-fixed.",
+  "repo": "https://github.com/ShishirPatil/gorilla",
+  "commit": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "seed": 42,
+  "stratify": {
+    "simple_python": 4,
+    "multiple": 4,
+    "parallel": 3,
+    "parallel_multiple": 3
+  },
+  "sampled": [
+    {
+      "type": "simple_python",
+      "file": "BFCL_v4_simple_python.json",
+      "n": 4,
+      "indices": [
+        327,
+        57,
+        12,
+        379
+      ]
+    },
+    {
+      "type": "multiple",
+      "file": "BFCL_v4_multiple.json",
+      "n": 4,
+      "indices": [
+        70,
+        62,
+        57,
+        35
+      ]
+    },
+    {
+      "type": "parallel",
+      "file": "BFCL_v4_parallel.json",
+      "n": 3,
+      "indices": [
+        188,
+        26,
+        173
+      ]
+    },
+    {
+      "type": "parallel_multiple",
+      "file": "BFCL_v4_parallel_multiple.json",
+      "n": 3,
+      "indices": [
+        189,
+        139,
+        22
+      ]
+    }
+  ],
+  "pool_n": 1000,
+  "pool_items_with_ordinary_realized": 411,
+  "pool_realized_class_counts": {
+    "ordinary_word": 837,
+    "number": 1684,
+    "opaque_identifier": 127,
+    "proper_name": 1199,
+    "other": 38
+  },
+  "n_items": 14,
+  "items_with_ordinary_realized": 4,
+  "items_with_proper_name_realized": 7,
+  "replacement_note": "ordinary_word-only misses are not replaced (would keep only numeric items). schema/number/identifier/proper_name misses retranslate then same-type replace, cap 5.",
+  "items": [
+    {
+      "qid": "toolcall:simple_python_327",
+      "bfcl_id": "simple_python_327",
+      "type": "simple_python",
+      "index_in_file": 327,
+      "utterance_en": "Give me the schedule of Manchester United for the next 6 games in Premier League.",
+      "function": [
+        {
+          "name": "sports_team.get_schedule",
+          "description": "Fetches the schedule of the specified sports team for the specified number of games in the given league.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "team_name": {
+                "type": "string",
+                "description": "The name of the sports team."
+              },
+              "num_of_games": {
+                "type": "integer",
+                "description": "Number of games for which to fetch the schedule."
+              },
+              "league": {
+                "type": "string",
+                "description": "The name of the sports league. If not provided, the function will fetch the schedule for all games, regardless of the league."
+              },
+              "location": {
+                "type": "string",
+                "description": "Optional. The city or venue where games are to be held. If not provided, default that all venues will be considered."
+              }
+            },
+            "required": [
+              "team_name",
+              "num_of_games",
+              "league"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "sports_team.get_schedule": {
+            "team_name": [
+              "Manchester United",
+              "Man United",
+              "Man U",
+              "MUFC"
+            ],
+            "num_of_games": [
+              6
+            ],
+            "league": [
+              "Premier League"
+            ],
+            "location": [
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "Manchester United",
+          "class": "proper_name"
+        },
+        {
+          "value": "Premier League",
+          "class": "proper_name"
+        },
+        {
+          "value": "6",
+          "class": "number"
+        }
+      ],
+      "n_realized": 3,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 2,
+        "number": 1
+      },
+      "all_answer_leaves_n": 6
+    },
+    {
+      "qid": "toolcall:simple_python_57",
+      "bfcl_id": "simple_python_57",
+      "type": "simple_python",
+      "index_in_file": 57,
+      "utterance_en": "Calculate the cell density in a sample with an optical density of 0.6, where the experiment dilution is 5 times.",
+      "function": [
+        {
+          "name": "calculate_cell_density",
+          "description": "Calculate the cell density of a biological sample based on its optical density and the experiment dilution.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "optical_density": {
+                "type": "float",
+                "description": "The optical density of the sample, usually obtained from a spectrophotometer reading."
+              },
+              "dilution": {
+                "type": "integer",
+                "description": "The dilution factor applied during the experiment."
+              },
+              "calibration_factor": {
+                "type": "float",
+                "description": "The calibration factor to adjust the density, default value is 1e9 assuming cell density is in CFU/mL."
+              }
+            },
+            "required": [
+              "optical_density",
+              "dilution"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "calculate_cell_density": {
+            "optical_density": [
+              0.6
+            ],
+            "dilution": [
+              5
+            ],
+            "calibration_factor": [
+              1000000000.0,
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "0.6",
+          "class": "number"
+        },
+        {
+          "value": "5",
+          "class": "number"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "number": 2
+      },
+      "all_answer_leaves_n": 3
+    },
+    {
+      "qid": "toolcall:simple_python_12",
+      "bfcl_id": "simple_python_12",
+      "type": "simple_python",
+      "index_in_file": 12,
+      "utterance_en": "Calculate the circumference of a circle with radius 3",
+      "function": [
+        {
+          "name": "geometry.circumference",
+          "description": "Calculate the circumference of a circle given the radius.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "radius": {
+                "type": "integer",
+                "description": "The radius of the circle."
+              },
+              "units": {
+                "type": "string",
+                "description": "Units for the output circumference measurement. Default is 'cm'."
+              }
+            },
+            "required": [
+              "radius"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "geometry.circumference": {
+            "radius": [
+              3
+            ],
+            "units": [
+              "cm",
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "3",
+          "class": "number"
+        }
+      ],
+      "n_realized": 1,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "number": 1
+      },
+      "all_answer_leaves_n": 2
+    },
+    {
+      "qid": "toolcall:simple_python_379",
+      "bfcl_id": "simple_python_379",
+      "type": "simple_python",
+      "index_in_file": 379,
+      "utterance_en": "What's the current time in Sydney, Australia?",
+      "function": [
+        {
+          "name": "get_current_time",
+          "description": "Retrieve the current time in a specific time zone.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The name of the city."
+              },
+              "country": {
+                "type": "string",
+                "description": "The name of the country."
+              },
+              "timezone": {
+                "type": "string",
+                "description": "The optional timezone to get current time. Default "
+              }
+            },
+            "required": [
+              "location",
+              "country"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "get_current_time": {
+            "location": [
+              "Sydney"
+            ],
+            "country": [
+              "Australia",
+              "Australia/Sydney"
+            ],
+            "timezone": [
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "Australia",
+          "class": "proper_name"
+        },
+        {
+          "value": "Sydney",
+          "class": "proper_name"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 2
+      },
+      "all_answer_leaves_n": 3
+    },
+    {
+      "qid": "toolcall:multiple_70",
+      "bfcl_id": "multiple_70",
+      "type": "multiple",
+      "index_in_file": 70,
+      "utterance_en": "Who were the kings of France during the 18th century?",
+      "function": [
+        {
+          "name": "european_history.get_events",
+          "description": "Provides a list of major historical events based on the specified country and century.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Country name."
+              },
+              "century": {
+                "type": "integer",
+                "description": "Century as an integer. For example, for the 1700s, input '18'."
+              },
+              "event_type": {
+                "type": "string",
+                "description": "Type of the event such as 'war', 'invention', 'revolution' etc. This field is optional. Default is 'all'"
+              }
+            },
+            "required": [
+              "country",
+              "century"
+            ]
+          }
+        },
+        {
+          "name": "european_history.get_culture",
+          "description": "Provides information on cultural trends, art movements, philosophical ideas based on the specified country and century.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Country name."
+              },
+              "century": {
+                "type": "integer",
+                "description": "Century as an integer. For example, for the 1700s, input '18'."
+              },
+              "aspect": {
+                "type": "string",
+                "description": "Aspect of culture such as 'literature', 'art', 'philosophy' etc. This field is optional. Default 'any'"
+              }
+            },
+            "required": [
+              "country",
+              "century"
+            ]
+          }
+        },
+        {
+          "name": "european_history.get_monarchs",
+          "description": "Provides a list of monarchs based on the specified country and century.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "Country name."
+              },
+              "century": {
+                "type": "integer",
+                "description": "Century as an integer. For example, for the 1700s, input '18'."
+              }
+            },
+            "required": [
+              "country",
+              "century"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "european_history.get_monarchs": {
+            "country": [
+              "France"
+            ],
+            "century": [
+              18
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "France",
+          "class": "proper_name"
+        },
+        {
+          "value": "18",
+          "class": "number"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 1,
+        "number": 1
+      },
+      "all_answer_leaves_n": 2
+    },
+    {
+      "qid": "toolcall:multiple_62",
+      "bfcl_id": "multiple_62",
+      "type": "multiple",
+      "index_in_file": 62,
+      "utterance_en": "Find me the closest nature park that allows camping and has scenic views in Boston, MA.",
+      "function": [
+        {
+          "name": "nature_park.find_nearby",
+          "description": "Locate nearby nature parks based on specific criteria like camping availability and scenic views.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. Boston, MA."
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Camping",
+                    "Scenic View",
+                    "Trails",
+                    "Picnic Areas"
+                  ]
+                },
+                "description": "Preferred features in nature park."
+              }
+            },
+            "required": [
+              "location",
+              "features"
+            ]
+          }
+        },
+        {
+          "name": "restaurant.find_nearby",
+          "description": "Locate nearby restaurants based on specific criteria.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. Boston, MA."
+              },
+              "amenities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "Delivery",
+                    "Outdoor Seating",
+                    "Vegetarian Options"
+                  ]
+                },
+                "description": "Preferred amenities in restaurant. Default empty array []"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "nature_park.find_nearby": {
+            "location": [
+              "Boston, MA",
+              "Boston"
+            ],
+            "features": [
+              [
+                "Camping",
+                "Scenic View"
+              ],
+              [
+                "Scenic View",
+                "Camping"
+              ]
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "Boston, MA",
+          "class": "proper_name"
+        },
+        {
+          "value": "Boston",
+          "class": "proper_name"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 2
+      },
+      "all_answer_leaves_n": 6
+    },
+    {
+      "qid": "toolcall:multiple_57",
+      "bfcl_id": "multiple_57",
+      "type": "multiple",
+      "index_in_file": 57,
+      "utterance_en": "Can you please calculate the compound interest for a principle of $1000, annual rate of 5% over 10 years with 4 compound per year.",
+      "function": [
+        {
+          "name": "financial.compound_interest",
+          "description": "Calculates compound interest.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "principle": {
+                "type": "integer",
+                "description": "The initial amount of money that is being compounded."
+              },
+              "rate": {
+                "type": "float",
+                "description": "The annual interest rate, as a decimal. E.g., an annual interest rate of 5% would be represented as 0.05."
+              },
+              "time": {
+                "type": "integer",
+                "description": "The amount of time, in years, that the money is to be compounded for."
+              },
+              "n": {
+                "type": "integer",
+                "description": "The number of times interest applied per time period."
+              }
+            },
+            "required": [
+              "principle",
+              "rate",
+              "time",
+              "n"
+            ]
+          }
+        },
+        {
+          "name": "financial.simple_interest",
+          "description": "Calculates simple interest.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "principle": {
+                "type": "float",
+                "description": "The initial amount of money that interest is being calculated for."
+              },
+              "rate": {
+                "type": "float",
+                "description": "The annual interest rate, as a decimal. E.g., an annual interest rate of 5% would be represented as 0.05."
+              },
+              "time": {
+                "type": "integer",
+                "description": "The amount of time, in years, that the money is to be compounded for."
+              }
+            },
+            "required": [
+              "principle",
+              "rate",
+              "time"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "financial.compound_interest": {
+            "principle": [
+              1000
+            ],
+            "rate": [
+              0.05
+            ],
+            "time": [
+              10
+            ],
+            "n": [
+              4
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "1000",
+          "class": "number"
+        },
+        {
+          "value": "10",
+          "class": "number"
+        },
+        {
+          "value": "4",
+          "class": "number"
+        }
+      ],
+      "n_realized": 3,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "number": 3
+      },
+      "all_answer_leaves_n": 4
+    },
+    {
+      "qid": "toolcall:multiple_35",
+      "bfcl_id": "multiple_35",
+      "type": "multiple",
+      "index_in_file": 35,
+      "utterance_en": "Calculate the greatest common divisor between 128 and 256.",
+      "function": [
+        {
+          "name": "calculate_lcm",
+          "description": "Calculate the least common multiple (lcm) between two integers.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "num1": {
+                "type": "integer",
+                "description": "First number to calculate lcm for."
+              },
+              "num2": {
+                "type": "integer",
+                "description": "Second number to calculate lcm for."
+              },
+              "method": {
+                "type": "string",
+                "description": "The specific method to use in the calculation. Supported values: 'standard', 'reduced'. Default 'standard'"
+              }
+            },
+            "required": [
+              "num1",
+              "num2"
+            ]
+          }
+        },
+        {
+          "name": "calculate_gcd",
+          "description": "Calculate the greatest common divisor (gcd) between two integers.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "num1": {
+                "type": "integer",
+                "description": "First number to calculate gcd for."
+              },
+              "num2": {
+                "type": "integer",
+                "description": "Second number to calculate gcd for."
+              },
+              "algorithm": {
+                "type": "string",
+                "description": "The specific algorithm to use in the calculation. Supported values: 'euclidean', 'binary'. Default 'euclidean'",
+                "enum": [
+                  "euclidean",
+                  "binary"
+                ]
+              }
+            },
+            "required": [
+              "num1",
+              "num2"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "calculate_gcd": {
+            "num1": [
+              128
+            ],
+            "num2": [
+              256
+            ],
+            "algorithm": [
+              "euclidean",
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "128",
+          "class": "number"
+        },
+        {
+          "value": "256",
+          "class": "number"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "number": 2
+      },
+      "all_answer_leaves_n": 3
+    },
+    {
+      "qid": "toolcall:parallel_188",
+      "bfcl_id": "parallel_188",
+      "type": "parallel",
+      "index_in_file": 188,
+      "utterance_en": "What are the current traffic conditions for a route from New York to Los Angeles using driving as the preferred method of transportation, then from Los Angeles to San Francisco using bicycling as the preferred method of transportation, and finally from San Francisco back to New York using transit as the preferred method of transportation?",
+      "function": [
+        {
+          "name": "get_traffic_info",
+          "description": "Retrieve current traffic conditions for a specified route.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "start_location": {
+                "type": "string",
+                "description": "The starting point of the route."
+              },
+              "end_location": {
+                "type": "string",
+                "description": "The destination of the route."
+              },
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "driving",
+                  "walking",
+                  "bicycling",
+                  "transit"
+                ],
+                "description": "Preferred method of transportation, default to 'driving'."
+              }
+            },
+            "required": [
+              "start_location",
+              "end_location"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "get_traffic_info": {
+            "start_location": [
+              "New York",
+              "New York, NY",
+              "NYC"
+            ],
+            "end_location": [
+              "Los Angeles",
+              "Los Angeles, CA",
+              "LA"
+            ],
+            "mode": [
+              "driving",
+              ""
+            ]
+          }
+        },
+        {
+          "get_traffic_info": {
+            "start_location": [
+              "Los Angeles",
+              "Los Angeles, CA",
+              "LA"
+            ],
+            "end_location": [
+              "San Francisco",
+              "SF"
+            ],
+            "mode": [
+              "bicycling"
+            ]
+          }
+        },
+        {
+          "get_traffic_info": {
+            "start_location": [
+              "San Francisco",
+              "SF"
+            ],
+            "end_location": [
+              "New York",
+              "New York, NY",
+              "NYC"
+            ],
+            "mode": [
+              "transit"
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "San Francisco",
+          "class": "proper_name"
+        },
+        {
+          "value": "Los Angeles",
+          "class": "proper_name"
+        },
+        {
+          "value": "bicycling",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "New York",
+          "class": "proper_name"
+        },
+        {
+          "value": "driving",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "transit",
+          "class": "ordinary_word"
+        }
+      ],
+      "n_realized": 6,
+      "has_ordinary_realized": true,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 3,
+        "ordinary_word": 3
+      },
+      "all_answer_leaves_n": 19
+    },
+    {
+      "qid": "toolcall:parallel_26",
+      "bfcl_id": "parallel_26",
+      "type": "parallel",
+      "index_in_file": 26,
+      "utterance_en": "Find details of lawsuits with case numbers '67813', '71249' filed in the New York District court for type 'Civil' and 'Criminal' cases.",
+      "function": [
+        {
+          "name": "court_case.find",
+          "description": "Locate details of court cases based on specific parameters like case number and case type.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and court where the lawsuit is filed."
+              },
+              "case_number": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "The unique case numbers of the lawsuits."
+              },
+              "case_type": {
+                "type": "string",
+                "enum": [
+                  "Civil",
+                  "Criminal"
+                ],
+                "description": "Type of the court case.",
+                "default": "Civil"
+              }
+            },
+            "required": [
+              "location",
+              "case_number"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "court_case.find": {
+            "location": [
+              "New York District",
+              "NY District",
+              "New York",
+              "New York, NY",
+              "NY"
+            ],
+            "case_number": [
+              [
+                "67813"
+              ]
+            ],
+            "case_type": [
+              "Civil",
+              ""
+            ]
+          }
+        },
+        {
+          "court_case.find": {
+            "location": [
+              "New York District",
+              "NY District",
+              "New York",
+              "New York, NY",
+              "NY"
+            ],
+            "case_number": [
+              [
+                "71249"
+              ]
+            ],
+            "case_type": [
+              "Criminal"
+            ]
+          }
+        },
+        {
+          "court_case.find": {
+            "location": [
+              "New York District",
+              "NY District",
+              "New York",
+              "New York, NY",
+              "NY"
+            ],
+            "case_number": [
+              [
+                "67813"
+              ]
+            ],
+            "case_type": [
+              "Criminal"
+            ]
+          }
+        },
+        {
+          "court_case.find": {
+            "location": [
+              "New York District",
+              "NY District",
+              "New York",
+              "New York, NY",
+              "NY"
+            ],
+            "case_number": [
+              [
+                "71249"
+              ]
+            ],
+            "case_type": [
+              "Civil",
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "New York District",
+          "class": "proper_name"
+        },
+        {
+          "value": "Criminal",
+          "class": "proper_name"
+        },
+        {
+          "value": "New York",
+          "class": "proper_name"
+        },
+        {
+          "value": "67813",
+          "class": "number"
+        },
+        {
+          "value": "71249",
+          "class": "number"
+        },
+        {
+          "value": "Civil",
+          "class": "proper_name"
+        }
+      ],
+      "n_realized": 6,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 4,
+        "number": 2
+      },
+      "all_answer_leaves_n": 28
+    },
+    {
+      "qid": "toolcall:parallel_173",
+      "bfcl_id": "parallel_173",
+      "type": "parallel",
+      "index_in_file": 173,
+      "utterance_en": "\"John has decided to invest in two different funds. He invested $5000 in Fund A which has an annual return rate of 7% and he plans to keep his money there for 5 years. On the other hand, he invested $8000 in Fund B with an annual return rate of 5% for a period of 7 years. Can you predict the profit John will make from both Fund A and Fund B?\"",
+      "function": [
+        {
+          "name": "investment.predictProfit",
+          "description": "Predict the profit for given investment after specified number of years.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "investment_amount": {
+                "type": "integer",
+                "description": "The amount invested in dollars."
+              },
+              "annual_return": {
+                "type": "float",
+                "description": "The annual return rate of the investment."
+              },
+              "years": {
+                "type": "integer",
+                "description": "The time period in years for which the investment is made."
+              }
+            },
+            "required": [
+              "investment_amount",
+              "annual_return",
+              "years"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "investment.predictProfit": {
+            "investment_amount": [
+              5000
+            ],
+            "annual_return": [
+              0.07
+            ],
+            "years": [
+              5
+            ]
+          }
+        },
+        {
+          "investment.predictProfit": {
+            "investment_amount": [
+              8000
+            ],
+            "annual_return": [
+              0.05
+            ],
+            "years": [
+              7
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "5000",
+          "class": "number"
+        },
+        {
+          "value": "8000",
+          "class": "number"
+        },
+        {
+          "value": "5",
+          "class": "number"
+        },
+        {
+          "value": "7",
+          "class": "number"
+        }
+      ],
+      "n_realized": 4,
+      "has_ordinary_realized": false,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "number": 4
+      },
+      "all_answer_leaves_n": 6
+    },
+    {
+      "qid": "toolcall:parallel_multiple_189",
+      "bfcl_id": "parallel_multiple_189",
+      "type": "parallel_multiple",
+      "index_in_file": 189,
+      "utterance_en": "\"Can you help me plan a trip? I want to start by finding a vegan restaurant in San Francisco, CA that operates until at least 22:00. Then, I want to book a hotel in the same city. I prefer a deluxe room for 3 nights starting from July 1st, and I would like the hotel to be pet-friendly and have a gym. After that, I want to find the schedule of the Golden State Warriors for the next 5 games in the NBA. Lastly, I have a deck of cards and I want to find the Queen of Hearts in it.\"",
+      "function": [
+        {
+          "name": "hotel_booking",
+          "description": "Books a hotel room given the location, room type, stay duration and any additional preferences.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city where you want to book the hotel."
+              },
+              "room_type": {
+                "type": "string",
+                "description": "Type of the room required. Options: 'single', 'double', 'deluxe', etc."
+              },
+              "duration": {
+                "type": "integer",
+                "description": "The number of nights you want to book the hotel for."
+              },
+              "start_date": {
+                "type": "string",
+                "description": "The date when your stay begins."
+              },
+              "preferences": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "pet_friendly",
+                    "gym",
+                    "swimming_pool",
+                    "free_breakfast",
+                    "parking"
+                  ]
+                },
+                "description": "Optional preferences of stay at the hotel. Default is none if not provided."
+              }
+            },
+            "required": [
+              "location",
+              "room_type",
+              "duration",
+              "start_date"
+            ]
+          }
+        },
+        {
+          "name": "sports_team.get_schedule",
+          "description": "Fetches the schedule of the specified sports team for the specified number of games in the given league.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "team_name": {
+                "type": "string",
+                "description": "The name of the sports team."
+              },
+              "num_of_games": {
+                "type": "integer",
+                "description": "Number of games for which to fetch the schedule."
+              },
+              "league": {
+                "type": "string",
+                "description": "The name of the sports league. If not provided, the function will fetch the schedule for all games, regardless of the league."
+              },
+              "location": {
+                "type": "string",
+                "description": "Optional. The city or venue where games are to be held. If not provided, all venues will be considered by default."
+              }
+            },
+            "required": [
+              "team_name",
+              "num_of_games",
+              "league"
+            ]
+          }
+        },
+        {
+          "name": "find_card_in_deck",
+          "description": "Locate a particular card in a deck based on rank and suit.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "rank": {
+                "type": "string",
+                "description": "Rank of the card (e.g. Ace, Two, King)."
+              },
+              "suit": {
+                "type": "string",
+                "description": "Suit of the card (e.g. Hearts, Spades, Diamonds, Clubs)."
+              },
+              "deck": {
+                "type": "array",
+                "items": {
+                  "type": "dict",
+                  "properties": {
+                    "rank": {
+                      "type": "string"
+                    },
+                    "suit": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "description": "Deck of cards. If not provided, the deck will be a default standard 52 card deck"
+              }
+            },
+            "required": [
+              "rank",
+              "suit"
+            ]
+          }
+        },
+        {
+          "name": "vegan_restaurant.find_nearby",
+          "description": "Locate nearby vegan restaurants based on specific criteria like operating hours.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city and state, e.g. New York, NY"
+              },
+              "operating_hours": {
+                "type": "integer",
+                "description": "Preferred latest closing time of the restaurant. E.g. if 11 is given, then restaurants that close at or after 11 PM will be considered. This is in 24 hour format. Default is 24"
+              }
+            },
+            "required": [
+              "location"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "vegan_restaurant.find_nearby": {
+            "location": [
+              "San Francisco, CA",
+              "San Francisco"
+            ],
+            "operating_hours": [
+              22
+            ]
+          }
+        },
+        {
+          "hotel_booking": {
+            "location": [
+              "San Francisco, CA",
+              "San Francisco"
+            ],
+            "room_type": [
+              "deluxe"
+            ],
+            "duration": [
+              3
+            ],
+            "start_date": [
+              "July 1st",
+              "2023-07-01",
+              "07/01/2023"
+            ],
+            "preferences": [
+              [
+                "pet_friendly",
+                "gym"
+              ]
+            ]
+          }
+        },
+        {
+          "sports_team.get_schedule": {
+            "team_name": [
+              "Golden State Warriors"
+            ],
+            "num_of_games": [
+              5
+            ],
+            "league": [
+              "NBA"
+            ],
+            "location": [
+              ""
+            ]
+          }
+        },
+        {
+          "find_card_in_deck": {
+            "rank": [
+              "Queen"
+            ],
+            "suit": [
+              "Hearts"
+            ],
+            "deck": [
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "Golden State Warriors",
+          "class": "proper_name"
+        },
+        {
+          "value": "San Francisco, CA",
+          "class": "proper_name"
+        },
+        {
+          "value": "San Francisco",
+          "class": "proper_name"
+        },
+        {
+          "value": "July 1st",
+          "class": "proper_name"
+        },
+        {
+          "value": "Hearts",
+          "class": "proper_name"
+        },
+        {
+          "value": "deluxe",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "Queen",
+          "class": "proper_name"
+        },
+        {
+          "value": "NBA",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "gym",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "22",
+          "class": "number"
+        },
+        {
+          "value": "3",
+          "class": "number"
+        },
+        {
+          "value": "5",
+          "class": "number"
+        }
+      ],
+      "n_realized": 12,
+      "has_ordinary_realized": true,
+      "has_proper_name_realized": true,
+      "realized_class_counts": {
+        "proper_name": 6,
+        "ordinary_word": 3,
+        "number": 3
+      },
+      "all_answer_leaves_n": 17
+    },
+    {
+      "qid": "toolcall:parallel_multiple_139",
+      "bfcl_id": "parallel_multiple_139",
+      "type": "parallel_multiple",
+      "index_in_file": 139,
+      "utterance_en": "\"Imagine you are a teacher preparing for a science and art themed day at school. You have planned a series of activities for your students. First, you want to divide your class of 30 students into smaller groups for a group dynamics activity. You know that 15 of your students are extroverts and 15 are introverts. Can you analyze the social dynamics and interactions within these groups based on these personality traits and group size? \n\nNext, you plan an art activity where students will mix two primary paint colors. You have chosen blue and yellow for this activity. Can you predict the resulting color if the lightness level is adjusted to 70%? \n\nThen, you plan a cooking activity where students will convert cooking measurements. You have a recipe that calls for 2 cups of flour, but your measuring cup is in milliliters. Can you convert this measurement from cups to milliliters for flour? \n\nFinally, you plan a physics experiment where students will calculate the electric field strength at a certain distance from a point charge. You have a charge of 0.000001 Coulombs and want to calculate the electric field strength 0.02 meters away from the charge in a vacuum. Can you calculate this for me?\"",
+      "function": [
+        {
+          "name": "calculate_electric_field_strength",
+          "description": "Calculate the electric field strength at a certain distance from a point charge.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "charge": {
+                "type": "float",
+                "description": "The charge in Coulombs."
+              },
+              "distance": {
+                "type": "float",
+                "description": "The distance from the charge in meters."
+              },
+              "medium": {
+                "type": "string",
+                "description": "The medium in which the charge and the point of calculation is located. Default is 'vacuum'."
+              }
+            },
+            "required": [
+              "charge",
+              "distance"
+            ]
+          }
+        },
+        {
+          "name": "mix_paint_color",
+          "description": "Combine two primary paint colors and adjust the resulting color's lightness level.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "color1": {
+                "type": "string",
+                "description": "The first primary color to be mixed."
+              },
+              "color2": {
+                "type": "string",
+                "description": "The second primary color to be mixed."
+              },
+              "lightness": {
+                "type": "integer",
+                "description": "The desired lightness level of the resulting color in percentage. The default level is set to 50%."
+              }
+            },
+            "required": [
+              "color1",
+              "color2"
+            ]
+          }
+        },
+        {
+          "name": "cooking_conversion.convert",
+          "description": "Convert cooking measurements from one unit to another.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "quantity": {
+                "type": "integer",
+                "description": "The quantity to be converted."
+              },
+              "from_unit": {
+                "type": "string",
+                "description": "The unit to convert from."
+              },
+              "to_unit": {
+                "type": "string",
+                "description": "The unit to convert to."
+              },
+              "item": {
+                "type": "string",
+                "description": "The item to be converted."
+              }
+            },
+            "required": [
+              "quantity",
+              "from_unit",
+              "to_unit",
+              "item"
+            ]
+          }
+        },
+        {
+          "name": "group_dynamics.pattern",
+          "description": "Examine the social dynamics and interactions within a group based on the personality traits and group size.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "total": {
+                "type": "integer",
+                "description": "The total group size."
+              },
+              "extroverts": {
+                "type": "integer",
+                "description": "The number of extroverted members in the group."
+              },
+              "introverts": {
+                "type": "integer",
+                "description": "The number of introverted members in the group."
+              }
+            },
+            "required": [
+              "total",
+              "extroverts",
+              "introverts"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "group_dynamics.pattern": {
+            "total": [
+              30
+            ],
+            "extroverts": [
+              15
+            ],
+            "introverts": [
+              15
+            ]
+          }
+        },
+        {
+          "mix_paint_color": {
+            "color1": [
+              "blue"
+            ],
+            "color2": [
+              "yellow"
+            ],
+            "lightness": [
+              70
+            ]
+          }
+        },
+        {
+          "cooking_conversion.convert": {
+            "quantity": [
+              2
+            ],
+            "from_unit": [
+              "cups",
+              "c"
+            ],
+            "to_unit": [
+              "milliliters",
+              "ml"
+            ],
+            "item": [
+              "flour"
+            ]
+          }
+        },
+        {
+          "calculate_electric_field_strength": {
+            "charge": [
+              1e-06
+            ],
+            "distance": [
+              0.02
+            ],
+            "medium": [
+              "vacuum",
+              ""
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "milliliters",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "vacuum",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "yellow",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "flour",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "0.02",
+          "class": "number"
+        },
+        {
+          "value": "blue",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "cups",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "15",
+          "class": "number"
+        },
+        {
+          "value": "30",
+          "class": "number"
+        },
+        {
+          "value": "70",
+          "class": "number"
+        },
+        {
+          "value": "2",
+          "class": "number"
+        },
+        {
+          "value": "c",
+          "class": "opaque_identifier"
+        }
+      ],
+      "n_realized": 12,
+      "has_ordinary_realized": true,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "ordinary_word": 6,
+        "number": 5,
+        "opaque_identifier": 1
+      },
+      "all_answer_leaves_n": 15
+    },
+    {
+      "qid": "toolcall:parallel_multiple_22",
+      "bfcl_id": "parallel_multiple_22",
+      "type": "parallel_multiple",
+      "index_in_file": 22,
+      "utterance_en": "Find me the sales growth rate for company XYZ for the last 3 years and also the interest coverage ratio for the same duration.",
+      "function": [
+        {
+          "name": "financial_ratios.interest_coverage",
+          "description": "Calculate a company's interest coverage ratio given the company name and duration",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "company_name": {
+                "type": "string",
+                "description": "The name of the company."
+              },
+              "years": {
+                "type": "integer",
+                "description": "Number of past years to calculate the ratio."
+              }
+            },
+            "required": [
+              "company_name",
+              "years"
+            ]
+          }
+        },
+        {
+          "name": "sales_growth.calculate",
+          "description": "Calculate a company's sales growth rate given the company name and duration",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "company": {
+                "type": "string",
+                "description": "The company that you want to get the sales growth rate for."
+              },
+              "years": {
+                "type": "integer",
+                "description": "Number of past years for which to calculate the sales growth rate."
+              }
+            },
+            "required": [
+              "company",
+              "years"
+            ]
+          }
+        },
+        {
+          "name": "weather_forecast",
+          "description": "Retrieve a weather forecast for a specific location and time frame.",
+          "parameters": {
+            "type": "dict",
+            "properties": {
+              "location": {
+                "type": "string",
+                "description": "The city that you want to get the weather for."
+              },
+              "days": {
+                "type": "integer",
+                "description": "Number of days for the forecast."
+              }
+            },
+            "required": [
+              "location",
+              "days"
+            ]
+          }
+        }
+      ],
+      "ground_truth": [
+        {
+          "financial_ratios.interest_coverage": {
+            "company_name": [
+              "XYZ"
+            ],
+            "years": [
+              3
+            ]
+          }
+        },
+        {
+          "sales_growth.calculate": {
+            "company": [
+              "XYZ"
+            ],
+            "years": [
+              3
+            ]
+          }
+        }
+      ],
+      "realized_literals": [
+        {
+          "value": "XYZ",
+          "class": "ordinary_word"
+        },
+        {
+          "value": "3",
+          "class": "number"
+        }
+      ],
+      "n_realized": 2,
+      "has_ordinary_realized": true,
+      "has_proper_name_realized": false,
+      "realized_class_counts": {
+        "ordinary_word": 1,
+        "number": 1
+      },
+      "all_answer_leaves_n": 4
+    }
+  ]
+}

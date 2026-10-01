@@ -1,0 +1,350 @@
+# 번역기 고정. 검증 결과를 보기 전에 기록한다. 2026-08-21.
+# 이 파일의 replacement 규칙은 수치를 본 뒤에 고치지 않는다.
+
+seed: 42
+temperature: 0.0
+max_tokens: 2048
+
+# API 실패 시에만 탄다. 품질 교체 순서와 같다. 바꾸지 않는다.
+fallback_order_frozen:
+  - cohere/command-a
+  - openai/gpt-4.1
+  - google/gemini-2.5-flash
+
+# 현재 확정. 평가 풀 OpenAI 3종과 가문 겹침은 알려진 한계.
+primary_model: openai/gpt-4.1
+fallback_models: []
+fallback_chain_closed: true
+
+prompt_file: prompts/translate_instruction.txt
+backtranslate_prompt_file: prompts/backtranslate_instruction.txt
+prompt_file_by_bucket:
+  math: prompts/translate_field.txt
+  instruction: prompts/translate_instruction.txt
+  extraction: prompts/translate_extraction.txt
+  toolcall: prompts/translate_toolcall.txt
+  abstention: prompts/translate_toolcall.txt
+  coding: prompts/translate_coding.txt
+backtranslate_prompt_file_by_bucket:
+  math: prompts/backtranslate_field.txt
+  instruction: prompts/backtranslate_instruction.txt
+  extraction: prompts/backtranslate_extraction.txt
+  toolcall: prompts/backtranslate_toolcall.txt
+  abstention: prompts/backtranslate_toolcall.txt
+  coding: prompts/backtranslate_coding.txt
+languages: [ko, hi]
+language_names:
+  ko: Korean
+  hi: Hindi
+  en: English
+
+scope_this_run:
+  bucket: coding
+  n: 14
+  field: question_content_head
+  note: "서술 헤드만 번역. 예제·제약·starter_code·테스트는 번역기에 넣지 않는다."
+
+cache:
+  path: data/translation_cache.jsonl
+  key_fields: [qid, field, target_lang, model, prompt_sha256, seed, temperature, n_per_bucket]
+
+# --- 교체 기준 (검증 전 고정). 결과 보고 뒤집지 않는다. ---
+replacement:
+  forbidden_region:
+    rule: "14문항 중 금지 영역 훼손 1건이라도 있으면 즉시 교체 대상"
+    fail_if_n_items_ge: 1
+    math_forbidden: numeric_literals
+    math_forbidden_note: >
+      math 의 치명 훼손은 숫자 리터럴이다. 고유명 음차(Janet→재닛)는
+      이야기 문제의 서술 번역이며 이 버킷의 즉시 교체 조건이 아니다.
+    instruction_forbidden: markdown_bracket_markers
+    instruction_markers: ["*", "**", "***", "-", "[", "]", "<<", ">>", "******", "```"]
+    instruction_forbidden_note: >
+      채택 7종은 마크다운·브래킷 마커로 채점한다. 번역 후에도 문자 그대로.
+      kwargs 필드는 번역하지 않는다. json_format 예시의 ``` 도 마커다.
+    instruction_also_runs: [quantity_v2, constraint_number]
+    instruction_constraint_types:
+      - detectable_content:number_placeholders
+      - detectable_format:number_bullet_lists
+      - detectable_format:number_highlighted_sections
+      - length_constraints:number_paragraphs
+    instruction_constraint_note: >
+      kwargs 수치 중 영어 프롬프트에 있는 값이 번역에서 사라지면 문항 무효.
+      마커 훼손과 동급. math 수량 드롭(오답)과 다르다.
+    extraction_forbidden: gold_literals_dates_numbers_units_schema_keys
+    extraction_note: >
+      고유명·식별자·날짜·ISO·숫자·단위(1280 g, 23 C)는 본문에 문자 그대로.
+      범주형 값(부서, 직함, 색, 트랙, 모듈, site)은 영어 스키마 enum.
+      스키마 키와 enum 토큰은 번역 대상 밖. 걸린 문항만 고치지 않고 14문항에 균일 적용.
+      extraction 은 교체 풀 없음. 수정 후 잔여는 n 축소. 새 문항 금지.
+    extraction_replacement_cap: 5
+    toolcall_forbidden: schema_bytes_and_utterance_answer_literals
+    toolcall_note: >
+      발화만 번역. 스키마는 번역기에 미전달. 스키마 바이트 동일.
+      possible_answer 값이 영어 발화에 있으면 보존. 고유명은 extraction B.
+      평범한 단어가 정답 리터럴인 문항은 교체하지 않음 (숫자만 남는 편향).
+      ordinary-only miss 는 leftover. identifier/number/proper_name/schema 만
+      재번역 후 같은 유형 대체, cap 5.
+    toolcall_replacement_cap: 5
+    abstention_forbidden: schema_bytes_and_utterance_dates_units
+    abstention_note: >
+      발화만 번역. 스키마는 번역기에 미전달. 실제 함수명·파라미터명·enum을
+      프롬프트에 넣지 않는다 (측정하려는 실패 모드를 은폐함).
+      정답은 툴 미호출. 번역이 스키마와 더 가까워지면 안 된다.
+      원문 발화에 없던 함수명·파라미터명·enum 문자열이 번역본에만 있으면
+      schema_proximity_leak. ko/hi 따로 집계. 맞추지 않고 건수만 보고.
+      교체·재번역 트리거가 아님. 한쪽만 생기면 언어 간 난이도가 달라진 관측.
+      schema_bytes / date / unit 만 재번역 후 대체, cap 5.
+    abstention_replacement_cap: 5
+    abstention_schema_proximity_leak: report_do_not_fix
+    coding_forbidden: starter_tail_placeholders_markers_structure_print_tokens
+    coding_note: >
+      question_content 헤드(서술)만 번역. 테일(Example/Input/Constraints/samples),
+      starter_code, 테스트는 번역기에 미전달. 수식·식별자·Yes/No 는 플레이스홀더.
+      코드 마커(백틱/펜스)와 예제 구조 헤더는 instruction 마커와 동급.
+      정답은 코드 실행. 테스트 출력 토큰이 서술에도 있으면 보존(실행 바이트).
+      extraction/toolcall 의 ordinary_gold 문자열 채점과 다름. 그 차이를 기록.
+      identifier_digit_leak / ordinal / count 는 leftover. schema/placeholder 등만
+      재번역 후 같은 난이도 대체, cap 5.
+    coding_replacement_cap: 5
+  backtranslation_asymmetry:
+    rule: "역번역 의미 이탈 플래그가 ko 와 hi 에서 비대칭이면 교체 검토"
+    note: >
+      양쪽이 비슷하게 나쁘면 번역기/역번역기 문제일 수 있다.
+      한쪽만 나쁘면 파이프라인(템플릿·언어 처리) 설계 실패로 본다.
+    flag_if_numeric_mismatch: true
+    flag_if_marker_mismatch: true
+    flag_if_chrfpp_lt: 0.50
+    asymmetric_if_abs_flag_count_diff_ge: 3
+    asymmetric_if_one_side_zero_and_other_ge: 2
+
+selection_log:
+  - date: "2026-08-21"
+    from: cohere/command-a
+    to: openai/gpt-4.1
+    trigger: forbidden_region
+    rule_applied: "fail_if_n_items_ge: 1"
+    evidence: reports/math_translation_verify.command-a.json
+    evidence_kept: true
+    criteria_revised_after_numbers: false
+    note: >
+      command-a 판정 입력을 폐기하지 않는다. 검사기 수정은 gpt-4.1 재실행에서
+      ko 숫자 표기 히트가 재발할 때만 별도 결정으로 제안한다.
+  - date: "2026-08-21"
+    type: translator_confirmed
+    model: openai/gpt-4.1
+    evidence_v1: reports/math_translation_verify.gpt-4.1.json
+    dropped: cohere/command-a
+    dropped_evidence: reports/math_translation_verify.command-a.json
+    rule_not_revised_after_numbers: true
+    gemini_not_used: true
+    vendor_family_overlap: "eval pool includes 3 OpenAI models; known limit"
+    note: >
+      v1 기준 ko 숫자 드롭 0. 드롭은 정보 손실, extra digit 는 표기 차.
+      BenchMAX chrF 는 선정 근거 아님.
+  - date: "2026-08-21"
+    type: checker_v2
+    module: eval/quantity_checker.py
+    checker_id: 010.quantity_checker
+    from: v1
+    to: v2
+    separate_decision: true
+    evidence: decisions/2026-08-21-translator-gpt-4.1-and-checker-v2.md
+    fourway: reports/math_checker_v1_v2_fourway.json
+    note: >
+      mgsm_006 에서 두 번역기가 반대 표기, 동일 수량. v1 은 표기 일치였다.
+      식별자/SKU/날짜/버전은 정규화하지 않는다.
+  - date: "2026-08-21"
+    type: checker_v3
+    module: eval/quantity_checker.py
+    checker_id: 010.quantity_checker
+    from: v2
+    to: v3
+    bucket_only: math
+    other_buckets: exact_string_match
+    evidence: decisions/2026-08-21-translator-gpt-4.1-and-checker-v2.md
+    sixway: reports/math_checker_v1_v2_v3.json
+    note: >
+      필수 수량 = 영어 원문 추출 ∩ GSM8K <<calc>>. 참고 수량은 fail 축이 아님.
+      coding/extraction/toolcall 에는 적용하지 않는다.
+      022+163 전행 동시 통과는 실패로 보고했고 맞추지 않았다. 잔여 2행은
+      번역 문제(189 ko missing 3, 022 hi 2-2 extra)로 재분류. math current = v3.
+  - date: "2026-08-21"
+    type: checker_by_bucket
+    math: v3
+    other: v2
+    evidence: decisions/2026-08-21-translator-gpt-4.1-and-checker-v2.md
+    note: >
+      v3 는 equation_solution/GSM8K <<calc>> 의존. 다른 버킷으로 이전 불가.
+      coding/extraction/toolcall 은 식별자·SKU·날짜 문자열 일치 → v2.
+  - date: "2026-08-21"
+    type: instruction_012_hi_replaced
+    dropped: instruction:ifeval_012
+    replacement: instruction:ifeval_047
+    retranslate_identical: true
+    seed: 42
+    evidence: reports/instruction_012_hi_retranslate.json
+    note: >
+      제약 수치 2 드롭. 재번역 동일. 풀 교체. 다른 7행은 맞추지 않음.
+  - date: "2026-08-21"
+    type: instruction_205_hi_replaced_123_kept
+    dropped: instruction:ifeval_205
+    replacement: instruction:ifeval_071
+    kept: instruction:ifeval_123
+    retranslate_identical_205: false
+    retranslate_identical_123: false
+    seed: 42
+    cap: 5
+    first_pass_invalidates: 3
+    first_pass_rate_of_14: 0.2143
+    originals_dropped: 2
+    evidence: reports/instruction_invalid_item_replacements.json
+    verify: reports/instruction_translation_verify.gpt-4.1.md
+    note: >
+      205 재번역 후에도 invalidates. 071 대체, 층화 유지. 123 재번역 통과로 유지.
+      1차 무효 3/14=21.43% 가 부록 수치. 상한 미도달. 056/507 잔여.
+  - date: "2026-08-21"
+    type: extraction_rules_a_b_human
+    evidence: reports/extraction_item_redesign.md
+    note: >
+      1차 hi 3건은 문항 설계. 범주형은 스키마 enum, 고유명은 라틴 보존.
+      14문항 균일 적용. 재번역은 검토 PASS 후. 새 문항으로 채우지 않음.
+  - date: "2026-08-21"
+    type: extraction_chrf_codeswitch_trap
+    evidence: reports/extraction_translation_verify.gpt-4.1.md
+    note: >
+      invalid 3->0 인데 ko chrF 0.8226->0.7837. event_002 1.000->0.660.
+      역번역 점수의 일부가 미번역(코드스위칭)이었다. 부록 보존.
+  - date: "2026-08-21"
+    type: residual_identifier_digit_leak
+    qid: extraction:invoice_002
+    lang: ko
+    extra: "8841"
+    from: INV-8841
+    invalidates: false
+    note: v2 가 식별자 내부 숫자를 수량 extra 로 센다. 맞추지 않음.
+  - date: "2026-08-21"
+    type: paper_body_ordinary_gold_literal
+    pool: "411/1000"
+    rate: 0.41
+    sample: "4/14"
+    rows: 8
+    appendix: false
+    note: >
+      BFCL 1000 중 411 이 발화에 평범한 단어를 정답 리터럴로 갖는다.
+      extraction 과 달리 enum 으로 옮길 수 없다. BFCL 채점이 발화 문자열
+      일치이기 때문이다. 다국어 toolcall 은 툴 선택과 코드스위치 판단이
+      섞인다. 14 중 4(8행)는 그 상태를 강제한다. 제품에서는 모델이 스스로
+      판단해야 한다. 010 주장(라우팅 신호가 능력이 아니라 봉투를 예측한다)과
+      직결. 파일럿 후 ordinary_gold 4 vs 나머지 10 의 모델별 정답 패턴 비교.
+      지금 결론 내지 말 것. n 작음. 분류표 헤드라인 4/14 동결.
+  - date: "2026-08-21"
+    type: chrf_flag_is_not_fail
+    qid: toolcall:multiple_62
+    ko: 0.381
+    hi: 0.477
+    threshold: 0.50
+    first_fire: true
+    disposition: KEEP
+    retranslated: false
+    preserved: "Boston, MA"
+    cause: "paraphrase of closest nature park, not damage"
+    note: >
+      chrF 플래그는 그 자체로 실패가 아니다. 금지영역 검사가 1차 방어.
+      임계를 이 사례로 재조정하지 않는다.
+  - date: "2026-08-21"
+    type: v2_known_properties
+    tags:
+      - identifier_digit_leak
+      - ordinal_quantity_promotion
+      - count_word_promotion
+      - grammatical_one
+    note: >
+      잔여 태깅 유지. coding 에서 identifier_digit_leak 이 더 나올 것이다.
+  - date: "2026-08-21"
+    type: abstention_translation_verify_1_4
+    n: 14
+    source: BFCL_v4_irrelevance.json
+    pool_n: 240
+    pool_en_schema_overlap: 25
+    sample_en_schema_overlap: 1
+    invalid_rows: 0
+    schema_proximity_leak_rows_ko: 0
+    schema_proximity_leak_rows_hi: 0
+    schema_proximity_leak_items: 0
+    replacement_events: 0
+    leak_repaired: false
+    chrf_flag_ko: 1
+    chrf_flag_hi: 0
+    chrf_keep: abstention:irrelevance_26
+    evidence: reports/abstention_translation_verify.gpt-4.1.md
+    note: >
+      고유 검사 schema_proximity_leak 0/14 ko, 0/14 hi. 맞추지 않음(0건).
+      풀 EN 겹침 25/240 이 모드가 존재함을 보여 준다. 표본 0은 부재 선언이 아님.
+      0/14 는 라틴 문자 삽입 없음. 개념 경로(pressure→압력)는 검출 밖.
+  - date: "2026-08-21"
+    type: paper_body_en_only_overlap_loss
+    qid: abstention:irrelevance_22
+    tokens: [current, distance]
+    direction: hint_removed_not_added
+    appendix: false
+    note: >
+      추가한 검사는 스키마 힌트 삽입. 실제는 파라미터명이 ko/hi 에서 빠짐.
+      abstention 에서 힌트 없는 쪽이 더 어렵다. 이 문항은 영어가 더 쉽다.
+      "다국어에서 비영어가 언제나 불리" 의 반례 후보. 1건. 단정 금지.
+      파일럿 후 irrelevance_22 의 en 정확도가 ko/hi 보다 높은지 확인할 것.
+  - date: "2026-08-21"
+    type: schema_proximity_leak_scope
+    count_ko: 0
+    count_hi: 0
+    reading: latin_string_insertion_none
+    not_reading: no_leak
+    note: >
+      0 을 성과로 포장하지 않음. 검출 범위 한정 문구 보존.
+  - date: "2026-08-21"
+    type: coding_translation_verify_1_4
+    n: 14
+    source: livecodebench/code_generation_lite
+    pool_n: 182
+    invalid_rows_live: 0
+    overfreeze_invalid_rows: 2
+    overfreeze_item: coding:3770
+    print_token_sample: 1
+    identifier_digit_leak_rows: 4
+    replacement_events: 0
+    evidence: reports/coding_translation_verify.gpt-4.1.md
+    overfreeze_evidence: reports/coding_translation_verify.overfreeze.md
+    note: >
+      정답은 실행. print_token 1/14 (3684 true/false) 보존. enum 이동 없음.
+      identifier_digit_leak 4행은 예상 leftover.
+
+checker:
+  id: 010.quantity_checker
+  by_bucket:
+    math: v3
+    instruction: v2
+    extraction: v2
+    toolcall: v2
+    abstention: v2
+    coding: v2
+    knowledge: v2
+  v3_adopted_for: math
+  frozen_versions: [v1, v2]
+  module: eval/quantity_checker.py
+  marker_checker: eval/marker_checker.py
+  constraint_checker: eval/constraint_checker.py
+  v3_not_for: [coding, extraction, toolcall, abstention, instruction, knowledge]
+
+verification:
+  chrfpp_word_order: 2
+  length_tokenizer: tiktoken_cl100k_base
+  length_tokenizer_note: >
+    참고용. 파일럿 본실행 후에는 실제 API usage 토큰으로 다시 계산한다.
+    tiktoken 값은 보존만 한다.
+  benchmax:
+    hub: LLaMAX/BenchMAX_Math
+    license: cc-by-4.0
+    use_as_data: false
+    compare_lang: ko
+    report_mismatch_rate: true
+    n_examples: 3

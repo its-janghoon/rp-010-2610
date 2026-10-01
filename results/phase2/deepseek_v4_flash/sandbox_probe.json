@@ -1,0 +1,7 @@
+{
+  "correct_stdin": true,
+  "timeout_fires": true,
+  "network_blocked": true,
+  "timeout_kind": "timeout",
+  "network_kind": "network_blocked"
+}

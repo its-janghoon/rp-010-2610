@@ -1,0 +1,66 @@
+{
+  "run_date": "2026-08-21",
+  "primary_model": "cohere/command-a",
+  "fallback_models": [
+    "openai/gpt-4.1",
+    "google/gemini-2.5-flash"
+  ],
+  "temperature": 0.0,
+  "seed": 42,
+  "prompt_file": "prompts/translate_field.txt",
+  "prompt_sha256": "346bd4d96abac0249a9b1761140580c4ea141014561c5f25f6d49591b2d50e01",
+  "backtranslate_prompt_file": "prompts/backtranslate_field.txt",
+  "backtranslate_prompt_sha256": "8eaecdd8afcb40b67bd94fd9713a6efe898367a30c0d38817d00294bec0f03e2",
+  "n": 14,
+  "bucket": "math",
+  "sampled_indices": [
+    6,
+    22,
+    26,
+    28,
+    35,
+    57,
+    62,
+    70,
+    139,
+    163,
+    173,
+    188,
+    189,
+    228
+  ],
+  "mgsm": {
+    "hub": "juletxara/mgsm",
+    "config": "en",
+    "revision": "b2f13d426afe3be8d69a7e739b36724db8b66bbc",
+    "license": "cc-by-sa-4.0",
+    "n_en": 250,
+    "qid_format": "math:mgsm_{index:03d}"
+  },
+  "cache": "data/translation_cache.jsonl",
+  "report": "reports/math_translation_verify.json",
+  "models_used_counts": {
+    "ko": {
+      "cohere/command-a": 14
+    },
+    "hi": {
+      "cohere/command-a": 14
+    }
+  },
+  "replacement_criteria": {
+    "forbidden_region": {
+      "rule": "14문항 중 금지 영역 훼손 1건이라도 있으면 즉시 교체 대상",
+      "math_forbidden": "numeric_literals",
+      "math_forbidden_note": "math 의 치명 훼손은 숫자 리터럴이다. 고유명 음차(Janet→재닛)는 이야기 문제의 서술 번역이며 이 버킷의 즉시 교체 조건이 아니다.\n",
+      "fail_if_n_items_ge": 1
+    },
+    "backtranslation_asymmetry": {
+      "rule": "역번역 의미 이탈 플래그가 ko 와 hi 에서 비대칭이면 교체 검토",
+      "note": "양쪽이 비슷하게 나쁘면 번역기/역번역기 문제일 수 있다. 한쪽만 나쁘면 파이프라인(템플릿·언어 처리) 설계 실패로 본다.\n",
+      "flag_if_numeric_mismatch": true,
+      "flag_if_chrfpp_lt": 0.5,
+      "asymmetric_if_abs_flag_count_diff_ge": 3,
+      "asymmetric_if_one_side_zero_and_other_ge": 2
+    }
+  }
+}

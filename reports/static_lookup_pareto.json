@@ -1,0 +1,2416 @@
+{
+  "cost_rule": {
+    "primary": "billed usage.cost",
+    "run_combination": "arithmetic mean of A and B observed billed totals",
+    "tie_break": "max stable accuracy, then min A/B mean billed for the 14-item cell (same order as per-request mean)",
+    "coding_hi_override": {
+      "model": "grok_4_3",
+      "rule": "Post-hold human lock 2026-08-23T03:33Z: do not buy a unique 1-cell coding edge whose A/B sign fails (stable +1, A +1, B +0).",
+      "source": "2026-08-23T03:33Z",
+      "argmax_would_have_been": "claude_fable_5"
+    },
+    "toolcall_hi_unsigned_tie": {
+      "model": "gemini_3_7_flash",
+      "rule": "Human 2026-08-23T04:01Z rule (b): a unique stable winner with exactly +1 whose A/B margin is unsigned is treated as tied with the one-behind candidates; min billed breaks the tie. The winner is already min billed here, so the rule intentionally does not change it.",
+      "source": "2026-08-23T04:01Z",
+      "evidence_grade": "tie-break selection; no signed accuracy premium"
+    },
+    "unsigned_rule": "Human 2026-08-23T04:44Z option B: uniformly apply to every premium=yes unsigned margin against the cheapest one-behind. Treat the margin as a tie and select min billed. Option C (expanding the tie pool to every unsigned one-behind) is rejected.",
+    "override_scope": "Human 2026-08-23T04:44Z explicitly superseded the narrow scope and required uniform application across all 21 cells.",
+    "missing_cost": "exclude cell, keep model; no catalog imputation",
+    "opus_note": "A and B each have 293 billed cells. The missing cell is the same key in both runs: claude_opus_5|toolcall:parallel_multiple_139|en",
+    "opus_cost_null_keys": {
+      "A": [
+        "claude_opus_5|toolcall:parallel_multiple_139|en"
+      ],
+      "B": [
+        "claude_opus_5|toolcall:parallel_multiple_139|en"
+      ]
+    },
+    "cost_noise_floor": "A/B full-matrix billed totals differ by 3.81%",
+    "lookup_ab_cost_spread": "locked lookup billed A $3.598971 vs B $3.066849; mean $3.332910; driven by coding-ko fable",
+    "winners_curse": "262/294 is an in-sample upper-bound estimate. Do not numerically correct."
+  },
+  "final_qid_ledger": {
+    "path": "reports/final_qid_98.txt",
+    "n": 98,
+    "sha256": "903af87edfaaaa205bb083ab8de7eab49ab1174d85e0550eb1e26e1be064c992"
+  },
+  "lookup": [
+    {
+      "bucket": "knowledge",
+      "lang": "ko",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 13,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.011408999999999999,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.011408999999999999,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.011408999999999999,
+      "mean_billed_per_request": 0.0008149285714285714,
+      "accuracy_tie_models": [
+        "claude_opus_5",
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "gemini_3_1_pro",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gemini_3_1_pro",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "knowledge",
+      "lang": "en",
+      "selected_model": "claude_opus_5",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.058465,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.059715,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.059090000000000004,
+      "mean_billed_per_request": 0.004220714285714286,
+      "accuracy_tie_models": [
+        "claude_opus_5"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "claude_opus_5",
+      "pre_rule_model": "claude_opus_5",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "gemini_3_7_flash",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gemini_3_7_flash",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "knowledge",
+      "lang": "hi",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 13,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.010891875,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.010891875,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.010891875,
+      "mean_billed_per_request": 0.0007779910714285715,
+      "accuracy_tie_models": [
+        "claude_opus_5",
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": null,
+      "rule_b_margin_a": null,
+      "rule_b_margin_b": null,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "math",
+      "lang": "ko",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 14,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.00100600062,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0010346818,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0010203412100000002,
+      "mean_billed_per_request": 7.288151500000001e-05,
+      "accuracy_tie_models": [
+        "claude_fable_5",
+        "claude_opus_5",
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_6",
+        "kimi_k3"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "gpt_5_6_luna",
+      "pre_rule_model": "gpt_5_6_luna",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "deepseek_v4_flash",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": "deepseek_v4_flash",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    },
+    {
+      "bucket": "math",
+      "lang": "en",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.00064988012,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00061090834,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.00063039423,
+      "mean_billed_per_request": 4.502815928571429e-05,
+      "accuracy_tie_models": [
+        "claude_fable_5",
+        "claude_opus_5",
+        "claude_sonnet_5",
+        "deepseek_v4_flash",
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_3",
+        "grok_4_6",
+        "kimi_k3",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "deepseek_v4_flash",
+      "pre_rule_model": "deepseek_v4_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": null,
+      "rule_b_margin_a": null,
+      "rule_b_margin_b": null,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "math",
+      "lang": "hi",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.00107974994,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00085791566,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0009688328,
+      "mean_billed_per_request": 6.920234285714286e-05,
+      "accuracy_tie_models": [
+        "claude_fable_5",
+        "claude_opus_5",
+        "claude_sonnet_5",
+        "deepseek_v4_flash",
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_3",
+        "grok_4_6",
+        "kimi_k3",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "deepseek_v4_flash",
+      "pre_rule_model": "deepseek_v4_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": null,
+      "rule_b_margin_a": null,
+      "rule_b_margin_b": null,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "ko",
+      "selected_model": "deepseek_v4_pro",
+      "stable_correct": 12,
+      "stable_n": 14,
+      "stable_accuracy": 0.8571428571428571,
+      "stable_oracle": 13,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.038270964448,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.045237166776,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.041754065612,
+      "mean_billed_per_request": 0.002982433258,
+      "accuracy_tie_models": [
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "deepseek_v4_pro",
+      "pre_rule_model": "deepseek_v4_pro",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "gpt_5_6_luna",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gpt_5_6_luna",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "en",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 12,
+      "stable_n": 14,
+      "stable_accuracy": 0.8571428571428571,
+      "stable_oracle": 12,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.03222075,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.03222075,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.03222075,
+      "mean_billed_per_request": 0.002301482142857143,
+      "accuracy_tie_models": [
+        "gemini_3_1_pro",
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "gpt_5_6_luna",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gpt_5_6_luna",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "hi",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 12,
+      "stable_n": 14,
+      "stable_accuracy": 0.8571428571428571,
+      "stable_oracle": 12,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.038239875,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.038239875,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.038239875,
+      "mean_billed_per_request": 0.0027314196428571426,
+      "accuracy_tie_models": [
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "grok_4_3",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "grok_4_3",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "ko",
+      "selected_model": "gpt_5_6_luna",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.001449,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0014922,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0014705999999999999,
+      "mean_billed_per_request": 0.00010504285714285713,
+      "accuracy_tie_models": [
+        "claude_opus_5",
+        "gemini_3_7_flash",
+        "gpt_5_6_luna",
+        "gpt_5_6_terra",
+        "kimi_k3",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gpt_5_6_luna",
+      "pre_rule_model": "gpt_5_6_luna",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "gpt_5_6_sol",
+      "rule_b_margin_a": 0,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gpt_5_6_sol",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "en",
+      "selected_model": "gpt_5_6_luna",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.000965,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0011486,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0010568,
+      "mean_billed_per_request": 7.548571428571429e-05,
+      "accuracy_tie_models": [
+        "claude_opus_5",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gpt_5_6_luna",
+      "pre_rule_model": "gpt_5_6_luna",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "claude_sonnet_5",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "claude_sonnet_5",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "hi",
+      "selected_model": "gpt_5_6_luna",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 14,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.001438,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00142,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0014290000000000001,
+      "mean_billed_per_request": 0.00010207142857142858,
+      "accuracy_tie_models": [
+        "claude_opus_5",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "gpt_5_6_terra",
+        "kimi_k3"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "gpt_5_6_terra",
+      "pre_rule_model": "gpt_5_6_terra",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "gpt_5_6_luna",
+      "rule_b_margin_a": 0,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "qwen3_7_plus",
+      "human_override": null,
+      "unsigned_tie_rule": "gpt_5_6_luna",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "ko",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 12,
+      "stable_n": 14,
+      "stable_accuracy": 0.8571428571428571,
+      "stable_oracle": 13,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.00066391742,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0009934448,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.00082868111,
+      "mean_billed_per_request": 5.919150785714286e-05,
+      "accuracy_tie_models": [
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gemini_3_7_flash",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "deepseek_v4_pro",
+      "pre_rule_model": "deepseek_v4_pro",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "deepseek_v4_flash",
+      "rule_b_margin_a": 0,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gpt_5_6_sol",
+      "human_override": null,
+      "unsigned_tie_rule": "deepseek_v4_flash",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "en",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 13,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.00804,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00804,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.00804,
+      "mean_billed_per_request": 0.0005742857142857144,
+      "accuracy_tie_models": [
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "deepseek_v4_flash",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "deepseek_v4_flash",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "hi",
+      "selected_model": "gemini_3_7_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 13,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.008287125,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.008287125,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.008287125,
+      "mean_billed_per_request": 0.0005919374999999999,
+      "accuracy_tie_models": [
+        "gemini_3_7_flash"
+      ],
+      "tie_break": "Human 2026-08-23T04:01Z rule (b): a unique stable winner with exactly +1 whose A/B margin is unsigned is treated as tied with the one-behind candidates; min billed breaks the tie. The winner is already min billed here, so the rule intentionally does not change it.",
+      "argmax_model": "gemini_3_7_flash",
+      "pre_rule_model": "gemini_3_7_flash",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "deepseek_v4_pro",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "deepseek_v4_pro",
+      "human_override": null,
+      "unsigned_tie_rule": "gemini_3_7_flash",
+      "evidence_grade": "tie-break selection; no signed accuracy premium"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "ko",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 14,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.0010560155,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00117373474,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.00111487512,
+      "mean_billed_per_request": 7.963393714285713e-05,
+      "accuracy_tie_models": [
+        "claude_sonnet_5",
+        "gemini_3_1_pro",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_3",
+        "grok_4_6",
+        "kimi_k3",
+        "qwen3_7_plus"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "gpt_5_6_luna",
+      "pre_rule_model": "gpt_5_6_luna",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "deepseek_v4_flash",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gemini_3_7_flash",
+      "human_override": null,
+      "unsigned_tie_rule": "deepseek_v4_flash",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "en",
+      "selected_model": "deepseek_v4_flash",
+      "stable_correct": 13,
+      "stable_n": 14,
+      "stable_accuracy": 0.9285714285714286,
+      "stable_oracle": 14,
+      "residual_to_oracle": 1,
+      "cost_a": {
+        "cost": 0.00104035942,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.00117043674,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0011053980800000002,
+      "mean_billed_per_request": 7.895700571428573e-05,
+      "accuracy_tie_models": [
+        "claude_fable_5",
+        "claude_sonnet_5",
+        "gemini_3_1_pro",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_3",
+        "grok_4_6"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "grok_4_3",
+      "pre_rule_model": "grok_4_3",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "deepseek_v4_flash",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "gpt_5_6_luna",
+      "human_override": null,
+      "unsigned_tie_rule": "deepseek_v4_flash",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "hi",
+      "selected_model": "gpt_5_6_luna",
+      "stable_correct": 14,
+      "stable_n": 14,
+      "stable_accuracy": 1.0,
+      "stable_oracle": 14,
+      "residual_to_oracle": 0,
+      "cost_a": {
+        "cost": 0.005975,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0059822,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.005978600000000001,
+      "mean_billed_per_request": 0.00042704285714285716,
+      "accuracy_tie_models": [
+        "claude_fable_5",
+        "claude_sonnet_5",
+        "deepseek_v4_pro",
+        "gemini_3_1_pro",
+        "gpt_5_6_luna",
+        "gpt_5_6_sol",
+        "gpt_5_6_terra",
+        "grok_4_3",
+        "grok_4_6"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "gpt_5_6_luna",
+      "pre_rule_model": "gpt_5_6_luna",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": "qwen3_7_plus",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 1,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": "qwen3_7_plus",
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "coding",
+      "lang": "ko",
+      "selected_model": "claude_fable_5",
+      "stable_correct": 9,
+      "stable_n": 14,
+      "stable_accuracy": 0.6428571428571429,
+      "stable_oracle": 11,
+      "residual_to_oracle": 2,
+      "cost_a": {
+        "cost": 3.19714,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 2.6524900000000002,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 2.924815,
+      "mean_billed_per_request": 0.20891535714285717,
+      "accuracy_tie_models": [
+        "claude_fable_5"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "claude_fable_5",
+      "pre_rule_model": "claude_fable_5",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": null,
+      "rule_b_margin_a": null,
+      "rule_b_margin_b": null,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "coding",
+      "lang": "en",
+      "selected_model": "grok_4_3",
+      "stable_correct": 9,
+      "stable_n": 14,
+      "stable_accuracy": 0.6428571428571429,
+      "stable_oracle": 11,
+      "residual_to_oracle": 2,
+      "cost_a": {
+        "cost": 0.08453485000000001,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.09119445,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.08786465,
+      "mean_billed_per_request": 0.006276046428571429,
+      "accuracy_tie_models": [
+        "grok_4_3"
+      ],
+      "tie_break": "max stable accuracy, then min A/B mean billed per request",
+      "argmax_model": "grok_4_3",
+      "pre_rule_model": "grok_4_3",
+      "rule_b_applied": false,
+      "rule_b_one_behind_model": null,
+      "rule_b_margin_a": null,
+      "rule_b_margin_b": null,
+      "rule_b_has_premium": false,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": null,
+      "unsigned_tie_rule": null,
+      "evidence_grade": "signed accuracy or ordinary tie-break"
+    },
+    {
+      "bucket": "coding",
+      "lang": "hi",
+      "selected_model": "grok_4_3",
+      "stable_correct": 8,
+      "stable_n": 14,
+      "stable_accuracy": 0.5714285714285714,
+      "stable_oracle": 10,
+      "residual_to_oracle": 2,
+      "cost_a": {
+        "cost": 0.0961484,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.0932392,
+        "n_billed": 14,
+        "n_total": 14,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.0946938,
+      "mean_billed_per_request": 0.006763842857142857,
+      "accuracy_tie_models": [
+        "claude_fable_5"
+      ],
+      "tie_break": "Human 2026-08-23T04:44Z rule (b), option B: treat every premium=yes unsigned margin vs the cheapest one-behind as a tie; min billed selects the one-behind model.",
+      "argmax_model": "claude_fable_5",
+      "pre_rule_model": "claude_fable_5",
+      "rule_b_applied": true,
+      "rule_b_one_behind_model": "grok_4_3",
+      "rule_b_margin_a": 1,
+      "rule_b_margin_b": 0,
+      "rule_b_has_premium": true,
+      "rule_b_second_pass_would_apply": false,
+      "rule_b_second_pass_candidate": null,
+      "human_override": "grok_4_3",
+      "unsigned_tie_rule": "grok_4_3",
+      "evidence_grade": "rule-b uniform premium tie-break; no signed accuracy premium"
+    }
+  ],
+  "lookup_point": {
+    "name": "static_task_lang_lookup",
+    "short_name": "lookup",
+    "type": "static_lookup",
+    "stable_correct": 262,
+    "stable_n": 294,
+    "stable_accuracy_matrix": 0.891156462585034,
+    "stable_accuracy_diagnostic": 0.891156462585034,
+    "stable_oracle": 274,
+    "residual_to_oracle": 12,
+    "cost_a": {
+      "cost": 3.5989707624680003,
+      "n_billed": 294,
+      "n_total": 294
+    },
+    "cost_b": {
+      "cost": 3.0668485638560004,
+      "n_billed": 294,
+      "n_total": 294
+    },
+    "mean_billed_cost": 3.3329096631620003
+  },
+  "all_coding_grok_point": {
+    "name": "static_lookup_all_coding_grok_4_3",
+    "short_name": "all-grok",
+    "type": "coding_sensitivity_policy",
+    "policy": "locked 18 non-coding cells; all three coding cells use grok_4_3",
+    "rule_version": "frozen pre-rule-b 04:01Z policy; uniform option B is not applied to its 18 non-coding cells",
+    "stable_correct": 264,
+    "stable_n": 294,
+    "stable_accuracy_matrix": 0.8979591836734694,
+    "stable_accuracy_diagnostic": 0.8979591836734694,
+    "cost_a": {
+      "cost": 0.525202529105,
+      "n_billed": 294,
+      "n_total": 294
+    },
+    "cost_b": {
+      "cost": 0.5606620445849999,
+      "n_billed": 294,
+      "n_total": 294
+    },
+    "mean_billed_cost": 0.542932286845
+  },
+  "symmetric_b_all_coding_grok_audit": {
+    "name": "static_lookup_all_coding_grok_4_3_symmetric_rule_b_audit",
+    "type": "audit_only_not_in_five_named_points",
+    "policy": "post-rule-b 18 non-coding cells; all coding cells use grok_4_3",
+    "stable_correct": 259,
+    "stable_n": 294,
+    "cost_a": 0.489720412468,
+    "cost_b": 0.525616813856,
+    "mean_billed_cost": 0.5076686131620001
+  },
+  "margin_audit": [
+    {
+      "bucket": "knowledge",
+      "lang": "ko",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 13,
+      "argmax_a": 13,
+      "argmax_b": 13,
+      "rank2": "claude_opus_5",
+      "rank2_stable": 13,
+      "argmax_mean_billed_cost": 0.011408999999999999,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "gemini_3_1_pro",
+      "one_behind_stable": 12,
+      "cheapest_one_behind_mean_billed_cost": 0.220538,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": false,
+      "rule_b_domain": false,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "knowledge",
+      "lang": "en",
+      "argmax": "claude_opus_5",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gemini_3_7_flash",
+      "rank2_stable": 13,
+      "argmax_mean_billed_cost": 0.059090000000000004,
+      "unique_best": true,
+      "stable_gap_to_rank2": 1,
+      "cheapest_one_behind": "gemini_3_7_flash",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.008026125,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "claude_opus_5",
+      "adopted_rule_b_result": "claude_opus_5",
+      "rule_b_cheapest_boundary_result": "claude_opus_5",
+      "rule_b_all_unsigned_result": "claude_opus_5"
+    },
+    {
+      "bucket": "knowledge",
+      "lang": "hi",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 13,
+      "argmax_a": 13,
+      "argmax_b": 13,
+      "rank2": "claude_opus_5",
+      "rank2_stable": 13,
+      "argmax_mean_billed_cost": 0.010891875,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": null,
+      "one_behind_stable": null,
+      "cheapest_one_behind_mean_billed_cost": null,
+      "one_behind_absent_reason": "argmax stable not reproduced by any lower model",
+      "a_margin_vs_one_behind": null,
+      "b_margin_vs_one_behind": null,
+      "sign_holds_vs_one_behind": null,
+      "has_premium_vs_one_behind": null,
+      "rule_b_domain": false,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "math",
+      "lang": "ko",
+      "argmax": "gpt_5_6_luna",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gemini_3_7_flash",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.0024968,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "deepseek_v4_flash",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.0010203412100000002,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_luna",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "math",
+      "lang": "en",
+      "argmax": "deepseek_v4_flash",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gpt_5_6_luna",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.00063039423,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": null,
+      "one_behind_stable": null,
+      "cheapest_one_behind_mean_billed_cost": null,
+      "one_behind_absent_reason": "argmax stable not reproduced by any lower model",
+      "a_margin_vs_one_behind": null,
+      "b_margin_vs_one_behind": null,
+      "sign_holds_vs_one_behind": null,
+      "has_premium_vs_one_behind": null,
+      "rule_b_domain": false,
+      "rule_b_result": "deepseek_v4_flash",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "math",
+      "lang": "hi",
+      "argmax": "deepseek_v4_flash",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gpt_5_6_luna",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.0009688328,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": null,
+      "one_behind_stable": null,
+      "cheapest_one_behind_mean_billed_cost": null,
+      "one_behind_absent_reason": "argmax stable not reproduced by any lower model",
+      "a_margin_vs_one_behind": null,
+      "b_margin_vs_one_behind": null,
+      "sign_holds_vs_one_behind": null,
+      "has_premium_vs_one_behind": null,
+      "rule_b_domain": false,
+      "rule_b_result": "deepseek_v4_flash",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "ko",
+      "argmax": "deepseek_v4_pro",
+      "argmax_stable": 12,
+      "argmax_a": 12,
+      "argmax_b": 12,
+      "rank2": "gemini_3_7_flash",
+      "rank2_stable": 12,
+      "argmax_mean_billed_cost": 0.041754065612,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "gpt_5_6_luna",
+      "one_behind_stable": 11,
+      "cheapest_one_behind_mean_billed_cost": 0.0102998,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "deepseek_v4_pro",
+      "adopted_rule_b_result": "deepseek_v4_pro",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_pro",
+      "rule_b_all_unsigned_result": "grok_4_3"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "en",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 12,
+      "argmax_a": 12,
+      "argmax_b": 12,
+      "rank2": "gemini_3_1_pro",
+      "rank2_stable": 12,
+      "argmax_mean_billed_cost": 0.03222075,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "gpt_5_6_luna",
+      "one_behind_stable": 11,
+      "cheapest_one_behind_mean_billed_cost": 0.0068008,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "instruction",
+      "lang": "hi",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 12,
+      "argmax_a": 12,
+      "argmax_b": 12,
+      "rank2": "qwen3_7_plus",
+      "rank2_stable": 12,
+      "argmax_mean_billed_cost": 0.038239875,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "grok_4_3",
+      "one_behind_stable": 11,
+      "cheapest_one_behind_mean_billed_cost": 0.036444649999999995,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "ko",
+      "argmax": "gpt_5_6_luna",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gpt_5_6_terra",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.0014705999999999999,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "gpt_5_6_sol",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.0070550000000000005,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 0,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": false,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_luna",
+      "adopted_rule_b_result": "gpt_5_6_luna",
+      "rule_b_cheapest_boundary_result": "gpt_5_6_luna",
+      "rule_b_all_unsigned_result": "gpt_5_6_luna"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "en",
+      "argmax": "gpt_5_6_luna",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gpt_5_6_sol",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.0010568,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "claude_sonnet_5",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.012417999999999998,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": false,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_luna",
+      "adopted_rule_b_result": "gpt_5_6_luna",
+      "rule_b_cheapest_boundary_result": "gpt_5_6_luna",
+      "rule_b_all_unsigned_result": "gpt_5_6_luna"
+    },
+    {
+      "bucket": "extraction",
+      "lang": "hi",
+      "argmax": "gpt_5_6_terra",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gemini_3_7_flash",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.008242,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "gpt_5_6_luna",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.0014290000000000001,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 0,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_terra",
+      "adopted_rule_b_result": "gpt_5_6_luna",
+      "rule_b_cheapest_boundary_result": "gpt_5_6_luna",
+      "rule_b_all_unsigned_result": "gpt_5_6_luna"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "ko",
+      "argmax": "deepseek_v4_pro",
+      "argmax_stable": 13,
+      "argmax_a": 13,
+      "argmax_b": 13,
+      "rank2": "qwen3_7_plus",
+      "rank2_stable": 13,
+      "argmax_mean_billed_cost": 0.0077514192029999995,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "deepseek_v4_flash",
+      "one_behind_stable": 12,
+      "cheapest_one_behind_mean_billed_cost": 0.00082868111,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 0,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "deepseek_v4_pro",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "en",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 13,
+      "argmax_a": 13,
+      "argmax_b": 13,
+      "rank2": "deepseek_v4_flash",
+      "rank2_stable": 12,
+      "argmax_mean_billed_cost": 0.00804,
+      "unique_best": true,
+      "stable_gap_to_rank2": 1,
+      "cheapest_one_behind": "deepseek_v4_flash",
+      "one_behind_stable": 12,
+      "cheapest_one_behind_mean_billed_cost": 0.00079690653,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "toolcall",
+      "lang": "hi",
+      "argmax": "gemini_3_7_flash",
+      "argmax_stable": 13,
+      "argmax_a": 13,
+      "argmax_b": 13,
+      "rank2": "deepseek_v4_pro",
+      "rank2_stable": 12,
+      "argmax_mean_billed_cost": 0.008287125,
+      "unique_best": true,
+      "stable_gap_to_rank2": 1,
+      "cheapest_one_behind": "deepseek_v4_pro",
+      "one_behind_stable": 12,
+      "cheapest_one_behind_mean_billed_cost": 0.0096762579785,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": false,
+      "rule_b_domain": true,
+      "rule_b_result": "gemini_3_7_flash",
+      "adopted_rule_b_result": "gemini_3_7_flash",
+      "rule_b_cheapest_boundary_result": "gemini_3_7_flash",
+      "rule_b_all_unsigned_result": "gemini_3_7_flash"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "ko",
+      "argmax": "gpt_5_6_luna",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "qwen3_7_plus",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.0072934,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "deepseek_v4_flash",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.00111487512,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_luna",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "en",
+      "argmax": "grok_4_3",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "gpt_5_6_sol",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.014978350000000001,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "deepseek_v4_flash",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.0011053980800000002,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": false,
+      "rule_b_result": "grok_4_3",
+      "adopted_rule_b_result": "deepseek_v4_flash",
+      "rule_b_cheapest_boundary_result": "deepseek_v4_flash",
+      "rule_b_all_unsigned_result": "deepseek_v4_flash"
+    },
+    {
+      "bucket": "abstention",
+      "lang": "hi",
+      "argmax": "gpt_5_6_luna",
+      "argmax_stable": 14,
+      "argmax_a": 14,
+      "argmax_b": 14,
+      "rank2": "deepseek_v4_pro",
+      "rank2_stable": 14,
+      "argmax_mean_billed_cost": 0.005978600000000001,
+      "unique_best": false,
+      "stable_gap_to_rank2": 0,
+      "cheapest_one_behind": "qwen3_7_plus",
+      "one_behind_stable": 13,
+      "cheapest_one_behind_mean_billed_cost": 0.02138528,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 1,
+      "sign_holds_vs_one_behind": true,
+      "has_premium_vs_one_behind": false,
+      "rule_b_domain": false,
+      "rule_b_result": "gpt_5_6_luna",
+      "adopted_rule_b_result": "gpt_5_6_luna",
+      "rule_b_cheapest_boundary_result": "gpt_5_6_luna",
+      "rule_b_all_unsigned_result": "gpt_5_6_luna"
+    },
+    {
+      "bucket": "coding",
+      "lang": "ko",
+      "argmax": "claude_fable_5",
+      "argmax_stable": 9,
+      "argmax_a": 9,
+      "argmax_b": 10,
+      "rank2": "claude_opus_5",
+      "rank2_stable": 7,
+      "argmax_mean_billed_cost": 2.924815,
+      "unique_best": true,
+      "stable_gap_to_rank2": 2,
+      "cheapest_one_behind": null,
+      "one_behind_stable": null,
+      "cheapest_one_behind_mean_billed_cost": null,
+      "one_behind_absent_reason": "no model one stable below argmax",
+      "a_margin_vs_one_behind": null,
+      "b_margin_vs_one_behind": null,
+      "sign_holds_vs_one_behind": null,
+      "has_premium_vs_one_behind": null,
+      "rule_b_domain": false,
+      "rule_b_result": "claude_fable_5",
+      "adopted_rule_b_result": "claude_fable_5",
+      "rule_b_cheapest_boundary_result": "claude_fable_5",
+      "rule_b_all_unsigned_result": "claude_fable_5"
+    },
+    {
+      "bucket": "coding",
+      "lang": "en",
+      "argmax": "grok_4_3",
+      "argmax_stable": 9,
+      "argmax_a": 11,
+      "argmax_b": 9,
+      "rank2": "kimi_k3",
+      "rank2_stable": 7,
+      "argmax_mean_billed_cost": 0.08786465,
+      "unique_best": true,
+      "stable_gap_to_rank2": 2,
+      "cheapest_one_behind": null,
+      "one_behind_stable": null,
+      "cheapest_one_behind_mean_billed_cost": null,
+      "one_behind_absent_reason": "no model one stable below argmax",
+      "a_margin_vs_one_behind": null,
+      "b_margin_vs_one_behind": null,
+      "sign_holds_vs_one_behind": null,
+      "has_premium_vs_one_behind": null,
+      "rule_b_domain": false,
+      "rule_b_result": "grok_4_3",
+      "adopted_rule_b_result": "grok_4_3",
+      "rule_b_cheapest_boundary_result": "grok_4_3",
+      "rule_b_all_unsigned_result": "grok_4_3"
+    },
+    {
+      "bucket": "coding",
+      "lang": "hi",
+      "argmax": "claude_fable_5",
+      "argmax_stable": 9,
+      "argmax_a": 10,
+      "argmax_b": 9,
+      "rank2": "grok_4_3",
+      "rank2_stable": 8,
+      "argmax_mean_billed_cost": 3.449535,
+      "unique_best": true,
+      "stable_gap_to_rank2": 1,
+      "cheapest_one_behind": "grok_4_3",
+      "one_behind_stable": 8,
+      "cheapest_one_behind_mean_billed_cost": 0.0946938,
+      "one_behind_absent_reason": null,
+      "a_margin_vs_one_behind": 1,
+      "b_margin_vs_one_behind": 0,
+      "sign_holds_vs_one_behind": false,
+      "has_premium_vs_one_behind": true,
+      "rule_b_domain": true,
+      "rule_b_result": "grok_4_3",
+      "adopted_rule_b_result": "grok_4_3",
+      "rule_b_cheapest_boundary_result": "grok_4_3",
+      "rule_b_all_unsigned_result": "grok_4_3"
+    }
+  ],
+  "unsigned_unique_one_cell_edges": [
+    "toolcall:hi",
+    "coding:hi"
+  ],
+  "rule_b_sensitivity": {
+    "unique_plus_one": {
+      "stable_correct": 267,
+      "stable_accuracy": 0.9081632653061225,
+      "cost_a": 3.634452879105,
+      "cost_b": 3.101893794585,
+      "mean_billed_cost": 3.368173336845,
+      "cells_changed_vs_adopted": [
+        "math:ko",
+        "extraction:hi",
+        "toolcall:ko",
+        "abstention:ko",
+        "abstention:en"
+      ],
+      "adopted": false
+    },
+    "cheapest_boundary": {
+      "stable_correct": 262,
+      "stable_accuracy": 0.891156462585034,
+      "cost_a": 3.5989707624680003,
+      "cost_b": 3.0668485638560004,
+      "mean_billed_cost": 3.3329096631620003,
+      "cells_changed_vs_adopted": [],
+      "adopted": true
+    },
+    "all_unsigned_one_behind": {
+      "stable_correct": 261,
+      "stable_accuracy": 0.8877551020408163,
+      "cost_a": 3.59738694802,
+      "cost_b": 3.05611854708,
+      "mean_billed_cost": 3.32675274755,
+      "cells_changed_vs_adopted": [
+        "instruction:ko"
+      ],
+      "adopted": false
+    }
+  },
+  "model_points": [
+    {
+      "name": "claude_fable_5",
+      "short_name": "fable",
+      "type": "single_model",
+      "stable_correct": 238,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8095238095238095,
+      "stable_accuracy_diagnostic": 0.8095238095238095,
+      "cost_a": {
+        "cost": 14.733089999999999,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 14.189540000000001,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 14.461314999999999,
+      "status_a": {
+        "ok": 289,
+        "parse_failed": 4,
+        "cap_hit": 1
+      },
+      "status_b": {
+        "ok": 287,
+        "parse_failed": 7
+      }
+    },
+    {
+      "name": "claude_opus_5",
+      "short_name": "opus",
+      "type": "single_model",
+      "stable_correct": 245,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8333333333333334,
+      "stable_accuracy_diagnostic": 0.8333333333333334,
+      "cost_a": {
+        "cost": 8.31126,
+        "n_billed": 293,
+        "n_total": 294,
+        "n_missing": 1
+      },
+      "cost_b": {
+        "cost": 7.066535,
+        "n_billed": 293,
+        "n_total": 294,
+        "n_missing": 1
+      },
+      "mean_billed_cost": 7.6888975,
+      "status_a": {
+        "ok": 291,
+        "cap_hit": 2,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 292,
+        "parse_failed": 1,
+        "cap_hit": 1
+      }
+    },
+    {
+      "name": "claude_sonnet_5",
+      "short_name": "sonnet",
+      "type": "single_model",
+      "stable_correct": 232,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7891156462585034,
+      "stable_accuracy_diagnostic": 0.7891156462585034,
+      "cost_a": {
+        "cost": 4.351772,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 4.460802,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 4.406287000000001,
+      "status_a": {
+        "ok": 288,
+        "cap_hit": 4,
+        "parse_failed": 2
+      },
+      "status_b": {
+        "ok": 287,
+        "cap_hit": 7
+      }
+    },
+    {
+      "name": "deepseek_v4_flash",
+      "short_name": "dsflash",
+      "type": "single_model",
+      "stable_correct": 210,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7142857142857143,
+      "stable_accuracy_diagnostic": 0.7142857142857143,
+      "cost_a": {
+        "cost": 0.07488966702,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.14015077312,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.10752022006999999,
+      "status_a": {
+        "ok": 289,
+        "cap_hit": 4,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 286,
+        "cap_hit": 8
+      }
+    },
+    {
+      "name": "deepseek_v4_pro",
+      "short_name": "dspro",
+      "type": "single_model",
+      "stable_correct": 227,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7721088435374149,
+      "stable_accuracy_diagnostic": 0.7721088435374149,
+      "cost_a": {
+        "cost": 0.923519255692,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.740010351882,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.831764803787,
+      "status_a": {
+        "ok": 283,
+        "cap_hit": 10,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 285,
+        "cap_hit": 9
+      }
+    },
+    {
+      "name": "gemini_3_1_pro",
+      "short_name": "g31",
+      "type": "single_model",
+      "stable_correct": 243,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.826530612244898,
+      "stable_accuracy_diagnostic": 0.826530612244898,
+      "cost_a": {
+        "cost": 7.10974,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 6.938848,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 7.024294,
+      "status_a": {
+        "ok": 290,
+        "cap_hit": 3,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 289,
+        "cap_hit": 3,
+        "parse_failed": 2
+      }
+    },
+    {
+      "name": "gemini_3_7_flash",
+      "short_name": "g37f",
+      "type": "single_model",
+      "stable_correct": 244,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8299319727891157,
+      "stable_accuracy_diagnostic": 0.8299319727891157,
+      "cost_a": {
+        "cost": 0.46892325,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.46977075,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.469347,
+      "status_a": {
+        "ok": 288,
+        "parse_failed": 6
+      },
+      "status_b": {
+        "ok": 288,
+        "parse_failed": 6
+      }
+    },
+    {
+      "name": "gpt_5_6_luna",
+      "short_name": "luna",
+      "type": "single_model",
+      "stable_correct": 223,
+      "stable_n": 293,
+      "stable_accuracy_matrix": 0.7585034013605442,
+      "stable_accuracy_diagnostic": 0.7610921501706485,
+      "cost_a": {
+        "cost": 0.17465819999999999,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.1691334,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.1718958,
+      "status_a": {
+        "ok": 290,
+        "parse_failed": 3,
+        "sandbox_error": 1
+      },
+      "status_b": {
+        "ok": 289,
+        "parse_failed": 4,
+        "sandbox_error": 1
+      }
+    },
+    {
+      "name": "gpt_5_6_sol",
+      "short_name": "sol",
+      "type": "single_model",
+      "stable_correct": 239,
+      "stable_n": 293,
+      "stable_accuracy_matrix": 0.8129251700680272,
+      "stable_accuracy_diagnostic": 0.8156996587030717,
+      "cost_a": {
+        "cost": 1.293286,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 1.283346,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 1.288316,
+      "status_a": {
+        "ok": 291,
+        "parse_failed": 2,
+        "sandbox_error": 1
+      },
+      "status_b": {
+        "ok": 293,
+        "parse_failed": 1
+      }
+    },
+    {
+      "name": "gpt_5_6_terra",
+      "short_name": "terra",
+      "type": "single_model",
+      "stable_correct": 234,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7959183673469388,
+      "stable_accuracy_diagnostic": 0.7959183673469388,
+      "cost_a": {
+        "cost": 1.512234,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 1.534734,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 1.523484,
+      "status_a": {
+        "ok": 292,
+        "parse_failed": 2
+      },
+      "status_b": {
+        "ok": 292,
+        "parse_failed": 2
+      }
+    },
+    {
+      "name": "grok_4_3",
+      "short_name": "grok43",
+      "type": "single_model",
+      "stable_correct": 218,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7414965986394558,
+      "stable_accuracy_diagnostic": 0.7414965986394558,
+      "cost_a": {
+        "cost": 0.68640225,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.70943115,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.6979167,
+      "status_a": {
+        "ok": 278,
+        "parse_failed": 16
+      },
+      "status_b": {
+        "ok": 281,
+        "parse_failed": 13
+      }
+    },
+    {
+      "name": "grok_4_6",
+      "short_name": "grok46",
+      "type": "single_model",
+      "stable_correct": 220,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7482993197278912,
+      "stable_accuracy_diagnostic": 0.7482993197278912,
+      "cost_a": {
+        "cost": 3.156662,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 3.067956,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 3.1123089999999998,
+      "status_a": {
+        "ok": 274,
+        "cap_hit": 3,
+        "parse_failed": 17
+      },
+      "status_b": {
+        "ok": 276,
+        "cap_hit": 3,
+        "parse_failed": 15
+      }
+    },
+    {
+      "name": "kimi_k3",
+      "short_name": "kimi",
+      "type": "single_model",
+      "stable_correct": 236,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8027210884353742,
+      "stable_accuracy_diagnostic": 0.8027210884353742,
+      "cost_a": {
+        "cost": 7.689702,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 7.7460454,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 7.7178737,
+      "status_a": {
+        "ok": 290,
+        "cap_hit": 4
+      },
+      "status_b": {
+        "ok": 284,
+        "cap_hit": 6,
+        "parse_failed": 4
+      }
+    },
+    {
+      "name": "qwen3_7_plus",
+      "short_name": "qwen",
+      "type": "single_model",
+      "stable_correct": 238,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8095238095238095,
+      "stable_accuracy_diagnostic": 0.8095238095238095,
+      "cost_a": {
+        "cost": 1.07134976,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 1.07563008,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 1.07348992,
+      "status_a": {
+        "ok": 282,
+        "cap_hit": 12
+      },
+      "status_b": {
+        "ok": 280,
+        "cap_hit": 13,
+        "parse_failed": 1
+      }
+    }
+  ],
+  "unrestricted_pareto_frontier": [
+    {
+      "name": "deepseek_v4_flash",
+      "short_name": "dsflash",
+      "type": "single_model",
+      "stable_correct": 210,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7142857142857143,
+      "stable_accuracy_diagnostic": 0.7142857142857143,
+      "cost_a": {
+        "cost": 0.07488966702,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.14015077312,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.10752022006999999,
+      "status_a": {
+        "ok": 289,
+        "cap_hit": 4,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 286,
+        "cap_hit": 8
+      }
+    },
+    {
+      "name": "gpt_5_6_luna",
+      "short_name": "luna",
+      "type": "single_model",
+      "stable_correct": 223,
+      "stable_n": 293,
+      "stable_accuracy_matrix": 0.7585034013605442,
+      "stable_accuracy_diagnostic": 0.7610921501706485,
+      "cost_a": {
+        "cost": 0.17465819999999999,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.1691334,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.1718958,
+      "status_a": {
+        "ok": 290,
+        "parse_failed": 3,
+        "sandbox_error": 1
+      },
+      "status_b": {
+        "ok": 289,
+        "parse_failed": 4,
+        "sandbox_error": 1
+      }
+    },
+    {
+      "name": "gemini_3_7_flash",
+      "short_name": "g37f",
+      "type": "single_model",
+      "stable_correct": 244,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8299319727891157,
+      "stable_accuracy_diagnostic": 0.8299319727891157,
+      "cost_a": {
+        "cost": 0.46892325,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.46977075,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.469347,
+      "status_a": {
+        "ok": 288,
+        "parse_failed": 6
+      },
+      "status_b": {
+        "ok": 288,
+        "parse_failed": 6
+      }
+    },
+    {
+      "name": "static_lookup_all_coding_grok_4_3",
+      "short_name": "all-grok",
+      "type": "coding_sensitivity_policy",
+      "policy": "locked 18 non-coding cells; all three coding cells use grok_4_3",
+      "rule_version": "frozen pre-rule-b 04:01Z policy; uniform option B is not applied to its 18 non-coding cells",
+      "stable_correct": 264,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "stable_accuracy_diagnostic": 0.8979591836734694,
+      "cost_a": {
+        "cost": 0.525202529105,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "cost_b": {
+        "cost": 0.5606620445849999,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "mean_billed_cost": 0.542932286845
+    }
+  ],
+  "product_comparison_points": [
+    {
+      "name": "deepseek_v4_flash",
+      "short_name": "dsflash",
+      "type": "single_model",
+      "stable_correct": 210,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7142857142857143,
+      "stable_accuracy_diagnostic": 0.7142857142857143,
+      "cost_a": {
+        "cost": 0.07488966702,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.14015077312,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.10752022006999999,
+      "status_a": {
+        "ok": 289,
+        "cap_hit": 4,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 286,
+        "cap_hit": 8
+      }
+    },
+    {
+      "name": "gpt_5_6_luna",
+      "short_name": "luna",
+      "type": "single_model",
+      "stable_correct": 223,
+      "stable_n": 293,
+      "stable_accuracy_matrix": 0.7585034013605442,
+      "stable_accuracy_diagnostic": 0.7610921501706485,
+      "cost_a": {
+        "cost": 0.17465819999999999,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.1691334,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.1718958,
+      "status_a": {
+        "ok": 290,
+        "parse_failed": 3,
+        "sandbox_error": 1
+      },
+      "status_b": {
+        "ok": 289,
+        "parse_failed": 4,
+        "sandbox_error": 1
+      }
+    },
+    {
+      "name": "gemini_3_7_flash",
+      "short_name": "g37f",
+      "type": "single_model",
+      "stable_correct": 244,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8299319727891157,
+      "stable_accuracy_diagnostic": 0.8299319727891157,
+      "cost_a": {
+        "cost": 0.46892325,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.46977075,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.469347,
+      "status_a": {
+        "ok": 288,
+        "parse_failed": 6
+      },
+      "status_b": {
+        "ok": 288,
+        "parse_failed": 6
+      }
+    },
+    {
+      "name": "static_lookup_all_coding_grok_4_3",
+      "short_name": "all-grok",
+      "type": "coding_sensitivity_policy",
+      "policy": "locked 18 non-coding cells; all three coding cells use grok_4_3",
+      "rule_version": "frozen pre-rule-b 04:01Z policy; uniform option B is not applied to its 18 non-coding cells",
+      "stable_correct": 264,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "stable_accuracy_diagnostic": 0.8979591836734694,
+      "cost_a": {
+        "cost": 0.525202529105,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "cost_b": {
+        "cost": 0.5606620445849999,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "mean_billed_cost": 0.542932286845
+    },
+    {
+      "name": "static_task_lang_lookup",
+      "short_name": "lookup",
+      "type": "static_lookup",
+      "stable_correct": 262,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.891156462585034,
+      "stable_accuracy_diagnostic": 0.891156462585034,
+      "stable_oracle": 274,
+      "residual_to_oracle": 12,
+      "cost_a": {
+        "cost": 3.5989707624680003,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "cost_b": {
+        "cost": 3.0668485638560004,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "mean_billed_cost": 3.3329096631620003
+    }
+  ],
+  "product_coordinate_frontier_mixed_rule_versions": [
+    {
+      "name": "deepseek_v4_flash",
+      "short_name": "dsflash",
+      "type": "single_model",
+      "stable_correct": 210,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.7142857142857143,
+      "stable_accuracy_diagnostic": 0.7142857142857143,
+      "cost_a": {
+        "cost": 0.07488966702,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.14015077312,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.10752022006999999,
+      "status_a": {
+        "ok": 289,
+        "cap_hit": 4,
+        "parse_failed": 1
+      },
+      "status_b": {
+        "ok": 286,
+        "cap_hit": 8
+      }
+    },
+    {
+      "name": "gpt_5_6_luna",
+      "short_name": "luna",
+      "type": "single_model",
+      "stable_correct": 223,
+      "stable_n": 293,
+      "stable_accuracy_matrix": 0.7585034013605442,
+      "stable_accuracy_diagnostic": 0.7610921501706485,
+      "cost_a": {
+        "cost": 0.17465819999999999,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.1691334,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.1718958,
+      "status_a": {
+        "ok": 290,
+        "parse_failed": 3,
+        "sandbox_error": 1
+      },
+      "status_b": {
+        "ok": 289,
+        "parse_failed": 4,
+        "sandbox_error": 1
+      }
+    },
+    {
+      "name": "gemini_3_7_flash",
+      "short_name": "g37f",
+      "type": "single_model",
+      "stable_correct": 244,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8299319727891157,
+      "stable_accuracy_diagnostic": 0.8299319727891157,
+      "cost_a": {
+        "cost": 0.46892325,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "cost_b": {
+        "cost": 0.46977075,
+        "n_billed": 294,
+        "n_total": 294,
+        "n_missing": 0
+      },
+      "mean_billed_cost": 0.469347,
+      "status_a": {
+        "ok": 288,
+        "parse_failed": 6
+      },
+      "status_b": {
+        "ok": 288,
+        "parse_failed": 6
+      }
+    },
+    {
+      "name": "static_lookup_all_coding_grok_4_3",
+      "short_name": "all-grok",
+      "type": "coding_sensitivity_policy",
+      "policy": "locked 18 non-coding cells; all three coding cells use grok_4_3",
+      "rule_version": "frozen pre-rule-b 04:01Z policy; uniform option B is not applied to its 18 non-coding cells",
+      "stable_correct": 264,
+      "stable_n": 294,
+      "stable_accuracy_matrix": 0.8979591836734694,
+      "stable_accuracy_diagnostic": 0.8979591836734694,
+      "cost_a": {
+        "cost": 0.525202529105,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "cost_b": {
+        "cost": 0.5606620445849999,
+        "n_billed": 294,
+        "n_total": 294
+      },
+      "mean_billed_cost": 0.542932286845
+    }
+  ],
+  "product_pareto_frontier": null,
+  "pareto_frontier": null,
+  "pareto_note": "No product frontier is asserted across mixed rule versions. The five human-specified points include frozen pre-B all-grok and post-B lookup. See symmetric_b_all_coding_grok_audit."
+}

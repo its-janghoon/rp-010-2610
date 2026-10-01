@@ -1,0 +1,192 @@
+{
+  "n": 294,
+  "status": {
+    "ok": 278,
+    "parse_failed": 16
+  },
+  "n_parse_failed": 16,
+  "n_cap_hit": 0,
+  "n_infra_unscored": 0,
+  "n_correct": 229,
+  "denom_matrix_294": 294,
+  "accuracy_matrix_parse_as_0": 0.7789115646258503,
+  "denom_parse_ok_not_infra_not_caphit": 278,
+  "n_correct_parse_ok_not_infra_not_caphit": 229,
+  "scoring_pin": {
+    "pinned_at": "2026-08-21T13:22:00Z",
+    "matrix_n": 294,
+    "parse_failed_counts_as": "incorrect",
+    "cap_hit_counts_as": "incorrect",
+    "sandbox_error_counts_as": "unscored_retry",
+    "http_error_counts_as": "unscored_retry",
+    "api_timeout_counts_as": "unscored_retry",
+    "report_denominators": [
+      "matrix_294",
+      "parse_ok_not_infra_not_caphit",
+      "cap_hit"
+    ],
+    "completed_statuses": [
+      "ok",
+      "parse_failed",
+      "cap_hit"
+    ],
+    "retry_statuses": [
+      "http_error",
+      "timeout",
+      "sandbox_error"
+    ],
+    "infra_retry_budget": 3,
+    "infra_after_budget": "leave_null_no_oracle",
+    "pin_commit": "3be49a0",
+    "pin_commit_time": "2026-08-21T13:23:26Z",
+    "cap_hit_detect": "finish_reason in [length, max_tokens] or completion_tokens >= cap",
+    "cap_hit_max_tokens_alias": true,
+    "answer_text": "message.content"
+  },
+  "max_tokens": {
+    "same_for_all_models": true,
+    "reason": "reasoning_tokens exhausts cap before content; finish_reason=length",
+    "approved_at": "2026-08-22",
+    "default": 8192,
+    "instruction": 8192,
+    "coding": 32768,
+    "previous": {
+      "default": 1024,
+      "instruction": 2048,
+      "coding": 4096
+    },
+    "smoke_cap_hit_zero_is_not_proof": true
+  },
+  "by_bucket": {
+    "knowledge": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 26,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "math": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 41,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "instruction": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 33,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "extraction": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 39,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "toolcall": {
+      "n": 42,
+      "parse_failed": 16,
+      "cap_hit": 0,
+      "correct": 21,
+      "parse_ok_not_infra_not_caphit": 26,
+      "infra": 0
+    },
+    "abstention": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 42,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    },
+    "coding": {
+      "n": 42,
+      "parse_failed": 0,
+      "cap_hit": 0,
+      "correct": 27,
+      "parse_ok_not_infra_not_caphit": 42,
+      "infra": 0
+    }
+  },
+  "by_lang": {
+    "ko": {
+      "n": 98,
+      "parse_failed": 7,
+      "cap_hit": 0,
+      "correct": 73,
+      "parse_ok_not_infra_not_caphit": 91
+    },
+    "en": {
+      "n": 98,
+      "parse_failed": 4,
+      "cap_hit": 0,
+      "correct": 76,
+      "parse_ok_not_infra_not_caphit": 94
+    },
+    "hi": {
+      "n": 98,
+      "parse_failed": 5,
+      "cap_hit": 0,
+      "correct": 80,
+      "parse_ok_not_infra_not_caphit": 93
+    }
+  },
+  "parse_fail_lang_bucket": {
+    "toolcall": {
+      "ko": 7,
+      "en": 4,
+      "hi": 5
+    }
+  },
+  "cap_hit_lang_bucket": {},
+  "by_scorer": {
+    "mcq": 42,
+    "exact": 42,
+    "ifeval": 42,
+    "json_match": 42,
+    "ast": 42,
+    "abstain": 42,
+    "exec": 42
+  },
+  "scorers_seen": [
+    "abstain",
+    "ast",
+    "exact",
+    "exec",
+    "ifeval",
+    "json_match",
+    "mcq"
+  ],
+  "scorers_expected": [
+    "mcq",
+    "exact",
+    "ast",
+    "abstain",
+    "exec",
+    "ifeval",
+    "json_match"
+  ],
+  "qid_three_langs": true,
+  "n_qid": 98,
+  "prompt_tokens": 119257,
+  "completion_tokens": 231598,
+  "cost_usd_billed": 0.686402,
+  "cost_usd_catalog_config": 0.728066,
+  "cost_usd_openrouter_list_0.0679_0.168": 0.047006,
+  "sandbox_probe": {
+    "correct_stdin": true,
+    "timeout_fires": true,
+    "network_blocked": true,
+    "timeout_kind": "timeout",
+    "network_kind": "network_blocked"
+  },
+  "model_key": "grok_4_3",
+  "labels_path": "results/phase2/grok_4_3/labels.jsonl"
+}

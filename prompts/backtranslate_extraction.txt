@@ -1,0 +1,13 @@
+Translate only the following document body into English.
+Keep Latin proper names, identifiers, dates, ISO timestamps, numerals, and unit expressions exactly as written in the source. Do not transliterate them into another script.
+This instruction is the same for every source language.
+In particular, keep unit symbols in expressions such as "1280 g" and "23 C"; do not spell them out.
+Categorical wording in the body may already be in the source language; render it as natural English.
+Do not extract the data. Do not explain.
+Output only the English document body.
+
+Protected literals (must appear unchanged):
+{protected_literals}
+
+Document body:
+{text}

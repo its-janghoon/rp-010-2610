@@ -1,0 +1,12 @@
+Translate only the following user utterance into {language}.
+Do not translate function names, parameter names, parameter descriptions, enum values, or type strings. Those are not in this message.
+Keep Latin proper names, identifiers, dates, numerals, filenames, and coordinates exactly as written. Do not transliterate them into another script.
+This instruction is the same for every target language.
+Do not call any function. Do not explain.
+Output only the translated utterance.
+
+Protected literals (must appear unchanged):
+{protected_literals}
+
+Utterance:
+{text}

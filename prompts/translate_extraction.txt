@@ -1,0 +1,18 @@
+Translate only the following document body into {language}.
+Keep Latin proper names, identifiers, dates, ISO timestamps, numerals, and unit expressions exactly as written in the source. Do not transliterate them into another script.
+This instruction is the same for every target language.
+Examples of the class: Hall C, Hall B, K. Berg, A. Novak, Orbit Labs, Nimbus Hotel.
+In particular, keep unit symbols in expressions such as "1280 g" and "23 C"; do not spell them out.
+Categorical wording in the body (department names, job titles, colors, module names, and similar labels) may be translated.
+Do not translate schema keys or schema enum tokens; they are not part of the document body.
+Do not extract the data. Do not explain.
+Output only the translated document body.
+
+Protected literals (must appear unchanged):
+{protected_literals}
+
+Fixed English schema keys:
+{schema_keys}
+
+Document body:
+{text}

@@ -1,0 +1,363 @@
+{
+  "purpose": "instruction 14 pin. kwargs not translated.",
+  "hub": "google/IFEval",
+  "revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+  "n_source": 541,
+  "pool_n_after_filter": 86,
+  "pool_n_config": 86,
+  "seed": 42,
+  "n_per_type": 2,
+  "adopted_instruction_ids": [
+    "combination:two_responses",
+    "detectable_content:number_placeholders",
+    "detectable_format:json_format",
+    "detectable_format:number_bullet_lists",
+    "detectable_format:number_highlighted_sections",
+    "detectable_format:title",
+    "length_constraints:number_paragraphs"
+  ],
+  "sampled_indices": [
+    65,
+    16,
+    210,
+    58,
+    15,
+    388,
+    56,
+    507,
+    123,
+    500,
+    378,
+    382,
+    47,
+    71
+  ],
+  "items": [
+    {
+      "qid": "instruction:ifeval_065",
+      "index": 65,
+      "key": 1332,
+      "instruction_id_list": [
+        "combination:two_responses"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "Create a table with a 7 day trip itinerary for India, and a 7 day trip itinerary for China. Separate them with exactly 6 asterisks symbols: *******",
+      "single_constraint": true,
+      "stratify_type": "combination:two_responses"
+    },
+    {
+      "qid": "instruction:ifeval_016",
+      "index": 16,
+      "key": 1098,
+      "instruction_id_list": [
+        "combination:two_responses"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "What is a name that people call God? Please give exactly two different responses. Separate the responses with 6 asterisk symbols: ******.",
+      "single_constraint": true,
+      "stratify_type": "combination:two_responses"
+    },
+    {
+      "qid": "instruction:ifeval_210",
+      "index": 210,
+      "key": 2164,
+      "instruction_id_list": [
+        "detectable_content:number_placeholders"
+      ],
+      "kwargs": [
+        {
+          "num_placeholders": 3
+        }
+      ],
+      "prompt": "Write a product description for a new line of dog toys, called \"the squeaker\". It's made of latex, and is designed for dogs of all ages and species. It's also available in a variety of colors and shapes. The response must contain at least 3 placeholders represented by square brackets, such as [address], [name], and [phone number].",
+      "single_constraint": true,
+      "stratify_type": "detectable_content:number_placeholders"
+    },
+    {
+      "qid": "instruction:ifeval_058",
+      "index": 58,
+      "key": 13,
+      "instruction_id_list": [
+        "detectable_format:json_format"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "What is the history of NYC prospect park? Please wrap your entire answer in JSON format. You can use markdown ticks such as ```. For example:\n```JSON\n{\n...\n}\n```",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:json_format"
+    },
+    {
+      "qid": "instruction:ifeval_015",
+      "index": 15,
+      "key": 1094,
+      "instruction_id_list": [
+        "detectable_format:json_format"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "Please provide the names of 5 famous moms in JSON format. Please, use any interesting or weird tone. Your entire output should just contain a JSON block, nothing else.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:json_format"
+    },
+    {
+      "qid": "instruction:ifeval_388",
+      "index": 388,
+      "key": 3025,
+      "instruction_id_list": [
+        "detectable_format:number_bullet_lists"
+      ],
+      "kwargs": [
+        {
+          "num_bullets": 3
+        }
+      ],
+      "prompt": "Can you tell me why there are oval race tracks in the desert? Please rewrite the answer to make it more concise and include the word \"desert\" in the answer. Make sure the answer contains exactly 3 bullet points in markdown format.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:number_bullet_lists"
+    },
+    {
+      "qid": "instruction:ifeval_056",
+      "index": 56,
+      "key": 1286,
+      "instruction_id_list": [
+        "detectable_format:number_bullet_lists"
+      ],
+      "kwargs": [
+        {
+          "num_bullets": 6
+        }
+      ],
+      "prompt": "What is the difference between the 13 colonies and the other British colonies in North America? Your answer must contain exactly 6 bullet point in Markdown using the following format:\n* Bullet point one.\n* Bullet point two.\n...\n* Bullet point fix.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:number_bullet_lists"
+    },
+    {
+      "qid": "instruction:ifeval_507",
+      "index": 507,
+      "key": 3629,
+      "instruction_id_list": [
+        "detectable_format:number_highlighted_sections"
+      ],
+      "kwargs": [
+        {
+          "num_highlights": 1
+        }
+      ],
+      "prompt": "Today, at the 54th Annual Grammy Awards, the Recording Academy honors the talent and creativity of the artists, musicians, and producers who are the creators of the best recordings of the past year. Please continue writing this text in a formal tone, using notations. Highlight some key parts in your response with \"*\", like *highlighted text*.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:number_highlighted_sections"
+    },
+    {
+      "qid": "instruction:ifeval_123",
+      "index": 123,
+      "key": 1646,
+      "instruction_id_list": [
+        "detectable_format:number_highlighted_sections"
+      ],
+      "kwargs": [
+        {
+          "num_highlights": 5
+        }
+      ],
+      "prompt": "Write a casual blog post about similarities across animal species. Highlight at least 5 sections in your answer by starting and ending with \"*\", like: *highlighted text section*.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:number_highlighted_sections"
+    },
+    {
+      "qid": "instruction:ifeval_500",
+      "index": 500,
+      "key": 3606,
+      "instruction_id_list": [
+        "detectable_format:title"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "Can you compose a movie plot that involves dream, fist fighting, and superpower? Include a title in double angular brackets, i.e. <<title>>.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:title"
+    },
+    {
+      "qid": "instruction:ifeval_378",
+      "index": 378,
+      "key": 295,
+      "instruction_id_list": [
+        "detectable_format:title"
+      ],
+      "kwargs": [
+        {}
+      ],
+      "prompt": "Write me a letter in the style of Shakespeare about the mandates and instructions of the King. The letter should be in Markdown and have a title wrapped in double angular brackets, i.e. <<title>>.",
+      "single_constraint": true,
+      "stratify_type": "detectable_format:title"
+    },
+    {
+      "qid": "instruction:ifeval_382",
+      "index": 382,
+      "key": 2977,
+      "instruction_id_list": [
+        "length_constraints:number_paragraphs"
+      ],
+      "kwargs": [
+        {
+          "num_paragraphs": 3
+        }
+      ],
+      "prompt": "Give 3 advice to teenagers who are struggling with their identity. Please use the exact format below:\n\nadvice 1 ....\n***\nadvice 2 ....\n***\nadvice 3 ....",
+      "single_constraint": true,
+      "stratify_type": "length_constraints:number_paragraphs"
+    },
+    {
+      "qid": "instruction:ifeval_047",
+      "index": 47,
+      "key": 1248,
+      "instruction_id_list": [
+        "length_constraints:number_paragraphs"
+      ],
+      "kwargs": [
+        {
+          "num_paragraphs": 4
+        }
+      ],
+      "prompt": "\"The man was arrested for stealing a car. He was later released on bail.\" Expand on it angrily in a rap style, and make sure there are exactly 4 sections. Separated the sections by the markdown divider: ***",
+      "single_constraint": true,
+      "stratify_type": "length_constraints:number_paragraphs"
+    },
+    {
+      "qid": "instruction:ifeval_071",
+      "index": 71,
+      "key": 1372,
+      "instruction_id_list": [
+        "detectable_content:number_placeholders"
+      ],
+      "kwargs": [
+        {
+          "num_placeholders": 7
+        }
+      ],
+      "prompt": "Draft a blog post about Ripley's Aquarium. Make sure your blog post contains at least 7 placeholders represented by square brackets, such as [location].",
+      "single_constraint": true,
+      "stratify_type": "detectable_content:number_placeholders"
+    }
+  ],
+  "replacements": [
+    {
+      "dropped_qid": "instruction:ifeval_012",
+      "dropped_index": 12,
+      "dropped_key": 1082,
+      "reason": "constraint_number_drop after retranslate: num_paragraphs=2 missing in hi",
+      "retranslate_same_as_original": true,
+      "replacement_qid": "instruction:ifeval_047",
+      "replacement_index": 47,
+      "replacement_key": 1248,
+      "draw": {
+        "type": "length_constraints:number_paragraphs",
+        "seed": 42,
+        "exclude": [
+          12,
+          15,
+          16,
+          56,
+          58,
+          65,
+          123,
+          205,
+          210,
+          378,
+          382,
+          388,
+          500,
+          507
+        ],
+        "method": "Random(seed).sample(remaining_singles, 1)"
+      }
+    },
+    {
+      "dropped_qid": "instruction:ifeval_205",
+      "dropped_index": 205,
+      "dropped_key": 2136,
+      "reason": "constraint_number 1 + marker extra [ ]; retranslate still invalidates",
+      "retranslate_same_as_original": false,
+      "replacement_qid": "instruction:ifeval_071",
+      "replacement_index": 71,
+      "replacement_key": 1372,
+      "rejected_before_accept": [],
+      "draw": {
+        "type": "detectable_content:number_placeholders",
+        "seed": 42,
+        "exclude_at_accept": [
+          12,
+          15,
+          16,
+          47,
+          56,
+          58,
+          65,
+          71,
+          123,
+          205,
+          210,
+          378,
+          382,
+          388,
+          500,
+          507
+        ],
+        "method": "Random(seed).sample(remaining_singles_of_type, 1)",
+        "same_type_only": true
+      }
+    }
+  ],
+  "replacement_policy": {
+    "cap": 5,
+    "cap_fraction_of_14": 0.3571,
+    "n_original_dropped": 2,
+    "n_replacement_rejected": 0,
+    "stopped_at_cap": false,
+    "count_rule": "originals dropped from the 14 plus replacement candidates that fail invalidates_item",
+    "n_events": 2
+  },
+  "kept_after_retranslate": [
+    {
+      "qid": "instruction:ifeval_123",
+      "lang": "hi",
+      "reason": "marker extra *; retranslate not identical; invalidates=false",
+      "retranslate_same_as_original": false
+    }
+  ],
+  "replacement_rate": {
+    "ifeval_n": 541,
+    "transferable_n": 86,
+    "pilot_n": 14,
+    "first_pass_invalidates_qids": [
+      "instruction:ifeval_012",
+      "instruction:ifeval_205",
+      "instruction:ifeval_123"
+    ],
+    "first_pass_invalidates": 3,
+    "first_pass_rate_of_pilot_14": 0.2143,
+    "kept_after_retranslate": 1,
+    "originals_dropped": 2,
+    "replacement_candidates_rejected": 0,
+    "events": 2,
+    "cap": 5,
+    "rate_of_pilot_14": 0.1429,
+    "rate_of_transferable_86": 0.0233,
+    "stratify_ok": true,
+    "stratify": {
+      "combination:two_responses": 2,
+      "detectable_content:number_placeholders": 2,
+      "detectable_format:json_format": 2,
+      "detectable_format:number_bullet_lists": 2,
+      "detectable_format:number_highlighted_sections": 2,
+      "detectable_format:title": 2,
+      "length_constraints:number_paragraphs": 2
+    }
+  }
+}

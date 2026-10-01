@@ -1,0 +1,11 @@
+Translate only the following contest problem narrative into English.
+Copy every placeholder of the form ⟦n⟧ exactly. Do not translate placeholders.
+Keep every remaining numeral exactly as written.
+Do not solve the problem. Do not explain.
+Output only the English narrative.
+
+Protected literals (must appear unchanged):
+{protected_literals}
+
+Narrative:
+{text}

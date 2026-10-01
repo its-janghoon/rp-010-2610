@@ -1,0 +1,280 @@
+{
+  "purpose": "checker v3 essential-quantity pin. not scoring labels.",
+  "mgsm_hub": "juletxara/mgsm",
+  "mgsm_revision": "b2f13d426afe3be8d69a7e739b36724db8b66bbc",
+  "mgsm_equation_solution_null_count": 250,
+  "mgsm_n": 250,
+  "gsm8k_hub": "openai/gsm8k",
+  "gsm8k_revision": "740312add88f781978c0658806c59bc2815b9866",
+  "match": "english_question_whitespace_normalized",
+  "n_pinned": 14,
+  "missing_indices": [],
+  "items": [
+    {
+      "qid": "math:mgsm_006",
+      "mgsm_index": 6,
+      "answer_number": 260,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "20*4=80",
+        "2*80=160",
+        "20+160+80=260"
+      ],
+      "calc_values": [
+        "160",
+        "2",
+        "20",
+        "260",
+        "4",
+        "80"
+      ]
+    },
+    {
+      "qid": "math:mgsm_022",
+      "mgsm_index": 22,
+      "answer_number": 7,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "3*1=3",
+        "2*2=4",
+        "3+4+0=7"
+      ],
+      "calc_values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "7"
+      ]
+    },
+    {
+      "qid": "math:mgsm_026",
+      "mgsm_index": 26,
+      "answer_number": 243,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "3*(16.50+22.50+42)=243"
+      ],
+      "calc_values": [
+        "16.50",
+        "22.50",
+        "243",
+        "3",
+        "42"
+      ]
+    },
+    {
+      "qid": "math:mgsm_028",
+      "mgsm_index": 28,
+      "answer_number": 25,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "20+15=35",
+        "60-35=25"
+      ],
+      "calc_values": [
+        "15",
+        "20",
+        "25",
+        "35",
+        "60"
+      ]
+    },
+    {
+      "qid": "math:mgsm_035",
+      "mgsm_index": 35,
+      "answer_number": 9,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "4*.25=1",
+        "4+1=5",
+        "4+5=9"
+      ],
+      "calc_values": [
+        "0.25",
+        "1",
+        "4",
+        "5",
+        "9"
+      ]
+    },
+    {
+      "qid": "math:mgsm_057",
+      "mgsm_index": 57,
+      "answer_number": 83,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "5000-3755=1245",
+        "1245/15=83"
+      ],
+      "calc_values": [
+        "1245",
+        "15",
+        "3755",
+        "5000",
+        "83"
+      ]
+    },
+    {
+      "qid": "math:mgsm_062",
+      "mgsm_index": 62,
+      "answer_number": 25000,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "30-20=10",
+        "50000*50*.01=25000"
+      ],
+      "calc_values": [
+        "0.01",
+        "10",
+        "20",
+        "25000",
+        "30",
+        "50",
+        "50000"
+      ]
+    },
+    {
+      "qid": "math:mgsm_070",
+      "mgsm_index": 70,
+      "answer_number": 7425,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "5*5=25",
+        "25+8=33",
+        "15*33=495",
+        "15*495=7425"
+      ],
+      "calc_values": [
+        "15",
+        "25",
+        "33",
+        "495",
+        "5",
+        "7425",
+        "8"
+      ]
+    },
+    {
+      "qid": "math:mgsm_139",
+      "mgsm_index": 139,
+      "answer_number": 70,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "12*4=48",
+        "48+22=70"
+      ],
+      "calc_values": [
+        "12",
+        "22",
+        "4",
+        "48",
+        "70"
+      ]
+    },
+    {
+      "qid": "math:mgsm_163",
+      "mgsm_index": 163,
+      "answer_number": 50,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "3*5=15",
+        "5*4=20",
+        "20+15+15=50"
+      ],
+      "calc_values": [
+        "15",
+        "20",
+        "3",
+        "4",
+        "5",
+        "50"
+      ]
+    },
+    {
+      "qid": "math:mgsm_173",
+      "mgsm_index": 173,
+      "answer_number": 18000,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "300+200+500=1000",
+        "1000*.5=500",
+        "1000+500=1500",
+        "1500*12=18000"
+      ],
+      "calc_values": [
+        "0.5",
+        "1000",
+        "12",
+        "1500",
+        "18000",
+        "200",
+        "300",
+        "500"
+      ]
+    },
+    {
+      "qid": "math:mgsm_188",
+      "mgsm_index": 188,
+      "answer_number": 50,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "20+2=22",
+        "30-22=8",
+        "400/8=50"
+      ],
+      "calc_values": [
+        "2",
+        "20",
+        "22",
+        "30",
+        "400",
+        "50",
+        "8"
+      ]
+    },
+    {
+      "qid": "math:mgsm_189",
+      "mgsm_index": 189,
+      "answer_number": 34,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "20.25-4.5=15.75",
+        "33*2=66",
+        "102/3=34"
+      ],
+      "calc_values": [
+        "102",
+        "15.75",
+        "2",
+        "20.25",
+        "3",
+        "33",
+        "34",
+        "4.5",
+        "66"
+      ]
+    },
+    {
+      "qid": "math:mgsm_228",
+      "mgsm_index": 228,
+      "answer_number": 1,
+      "gsm8k_file": "main/test-00000-of-00001.parquet",
+      "calc_spans": [
+        "4/2=2",
+        "4+2=6",
+        "360/6=60",
+        "60/60=1"
+      ],
+      "calc_values": [
+        "1",
+        "2",
+        "360",
+        "4",
+        "6",
+        "60"
+      ]
+    }
+  ]
+}

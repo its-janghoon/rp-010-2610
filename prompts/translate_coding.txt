@@ -1,0 +1,12 @@
+Translate only the following contest problem narrative into {language}.
+Copy every placeholder of the form ⟦n⟧ exactly. Do not translate placeholders.
+Keep every remaining numeral exactly as written.
+Do not solve the problem. Do not explain.
+Do not add example input, output, constraints, or code.
+Output only the translated narrative.
+
+Protected literals (must appear unchanged):
+{protected_literals}
+
+Narrative:
+{text}
